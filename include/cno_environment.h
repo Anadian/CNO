@@ -20,7 +20,6 @@ typedef struct CNO_Environment_struct {
 	cno_u8_type sdl2_pref_path[256];
 	cno_u8_type ipaddress[256];
 } CNO_Environment_type;
-CNO_Environment_type CNO_Environment;
 
 cno_u8_type CNO_Environment_Init();
 
