@@ -30,6 +30,8 @@ extern "C" {
 
 #include "cno_build.h"
 
+/* CNO_FunctionName_[USC][ER](G) */
+
 typedef struct CNO_Build_Info_struct{
 	cno_u8_type build_string[CNO_BUFFER_MAXSIZE];
 	cno_u8_type sdl_compiled[32];
@@ -542,6 +544,15 @@ Completion time (single loop),
 High score (single loop),
 High score (multi loop),
 Stages cleared (multi loop)
+
+Characters (style);
+Kirby (normal)
+Metaknight (Metakinghtmare)
+King Dedede (Brawling plus block breaking)
+Broomhatter (Dust Force)
+Marx (They Bleed Pixels)
+Nnja (Return of the Ninja)
+Plasma (Penta Pal)
 */
 
 //DreamPuff-thing-major-minor-patch binary-x86_64-macOS-clang-branch-commit
