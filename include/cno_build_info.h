@@ -527,6 +527,8 @@ speed and stun are related
 
 enemy, element1 element2, HP, class, EXP, gold
 
+Damage varies depending on state and location; enemies are most vulnerable.
+
 Difficulty:
 Easy: Recommended for novice players or content tourist. Base attack is doubled and defence is quadrupled. Strong regen is available early in the game. Miracles, criticals, item drops all in effect. Resource management is trivial.
 Normal: Recommended for modern players. Criticals and item drops are in effect. Modest regen is available about halfway through the game. Resource management is recommend but not strictly necessary.
