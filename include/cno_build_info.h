@@ -49,6 +49,9 @@ typedef struct CNO_Build_Info_struct{
 } CNO_Build_Info_type;
 
 /*
+Three states: gameplay, cutscene, menu
+Cutscenes must have letterboxing.
+Loading screens must have a subtle progress bar; light glow from the bottom of the screen perhaps.
 
 HUD placement:
 status:
@@ -68,9 +71,9 @@ fade for HUD: auto, toggle, off
 HUD: all always on, essentials on and fade rest, all fade, toggle, off
 fade speed for elemant: fast, medium, slow.
 Status (TL), game time/location/direction/weather (TC), Navigation/Alert (TR) connectivity and wall time
-Mission info (tutorial hints),  (beacon), controller state
-count, reticle (multi-colour/monochrome/invisible), timers/splits
-hotkey (ally info), subtitles, weapon info/equipment mapping
+Mission info (tutorial hints),  (beacon), timers/splits 
+count, reticle (multi-colour/monochrome/invisible), weapon info/equipment mapping 
+hotkey (ally info), subtitles, controller state
 Inventory/Command (BL), Contextual (BC), Enemy Info (BR)/picture-in-picture
 [OSC]???
 

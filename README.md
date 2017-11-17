@@ -1,5 +1,5 @@
 # CNO
-A low-level framework for ANSI C intended to be small, simple, easily embeddable.
+A low-level framework for ANSI C intended to be small, simple, and easily embeddable.
 ## Status
 
 | Branches | Version | Commit | Test | Last Commit |
