@@ -282,6 +282,7 @@ LB: Pane Left			RB: Pane Right
 													RUP: Quick Scroll up
 		LSTICK: Change Selection			RLEFT: Subscreen left	RRIGHT: Subscreen Right
 													RDOWN: Quick Scroll down
+Game must require less-than-or-equal-to 16 buttons (plus 2 analogue sticks) while also remaining playable, if unoptimal, with just a dpad and 4 buttons.
 Three-column, two-column, one-column with description, one-column no description
 At most two columns of menu options: hold right to select all.
 //Grid view?
