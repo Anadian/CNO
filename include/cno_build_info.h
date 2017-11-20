@@ -562,6 +562,7 @@ Plasma (Penta Pal)
 */
 
 //DreamPuff-thing-major-minor-patch binary-x86_64-macOS-clang-branch-commit
+//repo:package@version
 
 cno_u8_type CNO_Build_Info_Init(CNO_Build_Info_type *build_info);
 
