@@ -48,13 +48,12 @@ typedef struct CNO_Application_struct{
 	CNO_Evironment_type evironment;
 	cno_filestream_type stdout;
 	cno_filestream_type stderr;
+	CNO_Settings_type settings;
 	CNO_Mutex_type mutex;
 } CNO_Application_type;
 
-CNO_Application_type CNO_Application;
-
-cno_u8_type CNO_Application_Init();
-cno_u8_type CNO_Application_Quit();
+cno_s8_type CNO_Application_Init(C\App\_\ty *application, c\string\ty process_name);
+cno_s8_type CNO_Application_Quit();
 
 #ifdef __cplusplus
 }
