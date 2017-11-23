@@ -128,7 +128,7 @@ Game Menu:
 Map
 Inventory
 Status
-Notes
+Notes/Logs/Media
 
 Inventory:
 Consumables
@@ -141,7 +141,9 @@ Resume
 Retry from checkpoint
 Save game
 Load game
+Achievements/Progression(Including Highscores)/Statistics
 Options
+Extras
 //Screenshot
 Restart mission
 Quit to desktop
@@ -152,6 +154,22 @@ Retry from checkpoint
 Load game
 Restart Mission
 Quit to Mission Select
+
+Main Menu:
+Story Mode
+Arcade Mode
+Practice Mode
+Versus Mode
+Party Mode
+Achievements
+Options
+Extras
+
+Extras:
+Leaderboards
+Encyclopedia (HelpText/Characters/Abilities/Transcripts/Maps(including location info))
+Gallery (SoundTest/Animations/Cutscenes/Replays)
+DLC
 
 Options:
 Display
@@ -541,7 +559,7 @@ Very Hard: Recommended for masters of the game. Like Hard mode except attack and
 Impossible: A gimmick difficulty, this mode is like Very Hard except you die in one hit. Optimal resource management probably still won't be enough.
 
 Save game must show in-game time, real-world save time, and preferably screenshot.
-Three auto save slots, three quick save slots, at least five hard save slots, one suspension save slot. per profile
+Three auto save slots (action/room/stage), three quick save slots, at least five hard save slots, one suspension save slot. per profile
 Only host and official servers can record replays.
 Host can only record offline games, up to four players.
 
