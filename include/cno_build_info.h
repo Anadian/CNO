@@ -42,6 +42,8 @@ typedef struct CNO_Build_Info_struct{
 	cno_u8_type sdl_ttf_linked[32];
 	cno_u8_type sdl_mixer_compiled[32];
 	cno_u8_type sdl_mixer_linked[32];
+	cno_u8_type sdl_net_compiled[32];
+	cno_u8_type sdl_net_linked[32];
 	cno_u8_type pcre_compiled[32];
 	cno_u8_type pcre_linked[32];
 	cno_u8_type archive_compiled[32];
@@ -144,6 +146,7 @@ Load game
 Achievements/Progression(Including Highscores)/Statistics
 Options
 Extras
+Multiplayer
 //Screenshot
 Restart mission
 Quit to desktop
@@ -158,17 +161,24 @@ Quit to Mission Select
 Main Menu:
 Story Mode
 Arcade Mode
+Time Attack Mode
+Challenge Mode
 Practice Mode
 Versus Mode
 Party Mode
+Online
 Achievements
 Options
 Extras
 
 Extras:
+Manual (Tutorials/Glossary/Tips)
+Encyclopedia (Characters/Abilities/Transcripts/Maps(including location info))
+Pictures
+Replays
+Gallery (Animations/Cutscenes)
+Soundtest
 Leaderboards
-Encyclopedia (HelpText/Characters/Abilities/Transcripts/Maps(including location info))
-Gallery (SoundTest/Animations/Cutscenes/Replays)
 DLC
 
 Options:

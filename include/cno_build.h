@@ -104,7 +104,8 @@ typedef void* cno_utf8_type;
 #define CNO_TYPEDEFS_SET 1
 #endif //!defined(CNO_TYPEDEFS_SET)
 
-//Static Dependencies
+/* Static Dependencies */
+/* Standard */
 #define CNO_HAVE_STDIO 1
 #define CNO_HAVE_STDLIB 1
 #define CNO_HAVE_STRING 1
@@ -113,25 +114,32 @@ typedef void* cno_utf8_type;
 #define CNO_HAVE_STDARG 1
 #define CNO_HAVE_ERRNO 1
 #define CNO_HAVE_ASSERT 1
-
-//if unix
+/* Unix */
 #define CNO_HAVE_UNISTD 1
-#define CNO_HAVE_PCRE 1
 #define CNO_HAVE_UUID 1
-
-#define CNO_HAVE_WHEREAMI 1
-#define CNO_HAVE_TINYFILES 1
-#define CNO_HAVE_TINYFILEDIALOGS 1
-#define CNO_HAVE_STRETCHYBUFFER 1
-#define CNO_HAVE_SDS 0
-#define CNO_HAVE_UTF8 1
-#define CNO_HAVE_PARSON 1
-#define CNO_HAVE_ARCHIVE 1
-#define CNO_HAVE_GOPT 1
 #define CNO_HAVE_PTHREAD 0
+/* Bundled */
+#define CNO_HAVE_WHEREAMI 1
+#define CNO_HAVE_GOPT 1
+#define CNO_HAVE_PARSON 1
+#define CNO_HAVE_TINYFILES 1
+#define CNO_HAVE_UTF8 1
+#define CNO_HAVE_STRETCHYBUFFER 1
+#define CNO_HAVE_TINYFILEDIALOGS 0
+#define CNO_HAVE_SDS 0
+/* External */
 #define CNO_HAVE_SDL2 1
+#define CNO_HAVE_ARCHIVE 1
+#define CNO_HAVE_PCRE 0
 #define CNO_HAVE_USB 0
 #define CNO_HAVE_GAMEPAD 0
+/* SDL */
+#if CNO_HAVE_SDL2
+#define CNO_HAVE_SDL2_IMAGE 1
+#define CNO_HAVE_SDL2_MIXER 1
+#define CNO_HAVE_SDL2_TTF 1
+#define CNO_HAVE_SDL2_NET 1
+#endif /* CNO_HAVE_SDL2 */
 
 #define CNO_DEVICE_UNKNOWN 0
 #define CNO_DEVICE_DESKTOP 1
@@ -277,9 +285,9 @@ typedef void* cno_utf8_type;
 #endif //CNO_HAVE_STDLIB
 
 #if CNO_HAVE_PARSON
-#define cno_value_type JSON_Value*
-#define cno_object_type JSON_Object*
-#define cno_array_type JSON_Array*
+#define cno_jsonvalue_type JSON_Value*
+#define cno_jsonobject_type JSON_Object*
+#define cno_jsonarray_type JSON_Array*
 #endif //CNO_HAVE_PARSON
 
 #if CNO_HAVE_TINYFILES
@@ -291,14 +299,7 @@ typedef void* cno_utf8_type;
 #define cno_hashhandle UT_hash_handle hh
 #endif //CNO_HAVE_UTHASH
 
-#if CNO_HAVE_SDL2
-#include <SDL2/SDL_version.h>
-#define CNO_HAVE_SDL2_IMAGE 1
-#define CNO_HAVE_SDL2_MIXER 1
-#define CNO_HAVE_SDL2_TTF 1
-#endif //CNO_HAVE_SDL2
-
-//CNO_Functions
+/* CNO_Functions */
 #ifndef CNO_printf
 #if CNO_HAVE_STDIO && CNO_ALLOW_PRINTF
 #define CNO_printf(...) printf(__VA_ARGS__);
