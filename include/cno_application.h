@@ -52,7 +52,7 @@ typedef struct CNO_Application_struct{
 	CNO_Mutex_type mutex;
 } CNO_Application_type;
 
-cno_s8_type CNO_Application_Init(C\App\_\ty *application, c\string\ty process_name);
+cno_s8_type CNO_Application_Init(CNO_Application__type *application, cno_string_type process_name);
 cno_s8_type CNO_Application_Quit();
 
 #ifdef __cplusplus

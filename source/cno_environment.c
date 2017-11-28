@@ -17,9 +17,9 @@
 #include <stdio.h>
 #endif //CNO_HAVE_STDIO
 
-cno_u8_type CNO_Environment_Init(CNO_Environment\ty *environment){
+cno_u8_type CNO_Environment_Init(CNO_Environment_type *environment){
 #if CNO_HAVE_STDLIB
-	if(getenv("USER") != NULL) C\String_Copy(&((*environment).username),getenv("USER"));
+	if(getenv("USER") != NULL) CNO_String_Copy(&((*environment).username),getenv("USER"));
 	else if(getenv("USERNAME") != NULL) CNO_String_Copy(&((*environment).username),getenv("USERNAME"));
 	else if(getenv("LOGNAME") != NULL) CNO_String_Copy(&((*environment).username),getenv("LOGNAME"));
 	if(getenv("HOSTNAME") != NULL) CNO_String_Copy(&((*environment).hostname),getenv("HOSTNAME"));

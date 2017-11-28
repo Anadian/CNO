@@ -53,7 +53,7 @@ typedef struct CNO_Build_Info_struct{
 /*
 Three states: gameplay, cutscene, menu
 Cutscenes must have letterboxing.
-Loading screens must have a subtle progress bar; light glow from the bottom of the screen perhaps.
+Loading screens must have a subtle progress bar (light glow from the bottom of the screen perhaps) and show a tip, status, and location/time.
 
 HUD placement:
 status:
@@ -559,7 +559,7 @@ speed and stun are related
 
 enemy, element1 element2, HP, class, EXP, gold
 
-Damage varies depending on state and location; enemies are most vulnerable.
+Damage varies depending on state and location; enemies are most vulnerable while preparing an attack.
 
 Difficulty:
 Easy: Recommended for novice players or content tourist. Base attack is doubled and defence is quadrupled. Strong regen is available early in the game. Miracles, criticals, item drops all in effect. Resource management is trivial.

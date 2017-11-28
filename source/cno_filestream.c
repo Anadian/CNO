@@ -15,7 +15,7 @@
 cno_s8_type CNO_FileStream_Open(cno_filestream_type *file, cno_cstring_type mode, cno_string_type filename){
 	cno_s8_type _return = 1;
 #if CNO_HAVE_STDIO
-	c\filestream\ty filehandle = fopen(filename, mode);
+	cno_filestream_type filehandle = fopen(filename, mode);
 	if(filehandle != NULL){
 		_return = 0;
 		*file = filehandle;
@@ -59,7 +59,7 @@ cno_s8_type CNO_FileStream_Close(cno_filestream_type *file){
 		_return = 3;
 	}
 #else
-	_return = 0;
+	_return = 1;
 #endif //CNO_HAVE_STDIO
 	return _return;
 }
