@@ -126,21 +126,26 @@ typedef struct CNO_Transport_struct{
 
 #if !defined(CNO_NO_GLOBAL_STATE)
 CNO_Transport_type *CNO_Transports_Global = NULL;
-//CDM(CNO_Log_Transport_Add_Global,CNO_Log_Transport_Add(CNO_Transports_Global, __VA_ARGS__))
-#if !defined(CNO_Log_Transport_Add_Global) //p
-#define CNO_Log_Transport_Add_Global(...) CNO_Log_Transport_Add(CNO_Transports_Global, __VA_ARGS__) //p
-#endif //!defined(CNO_Log_Transport_Add_Global) //p
+/* macro(!defined(CNO_Log_Transport_Add_Global)`CNO_Log_Transport_Add_Global(...)`CNO_Log_Transport_Add(CNO_Transports_Global,__VA_ARGS__)) */
+#if !defined(CNO_Log_Transport_Add_Global)
+#define CNO_Log_Transport_Add_Global(...) CNO_Log_Transport_Add(CNO_Transports_Global,__VA_ARGS__)
+#endif /* !defined(CNO_Log_Transport_Add_Global) */
+/* macro(!defined(CNO_Log_Transport_Clear_Global)`CNO_Log_Transport_Clear_Global(...)`CNO_Log_Transport_Clear(CNO_Transports_Global)) */
+#if !defined(CNO_Log_Transport_Clear_Global)
+#define CNO_Log_Transport_Clear_Global(...) CNO_Log_Transport_Clear(CNO_Transports_Global)
+#endif /* !defined(CNO_Log_Transport_Clear_Global) */
+/* macro(!defined(CNO_Log_Global)`CNO_Log_Global(...)`CNO_Log(CNO_Transports_Global,__VA_ARGS__)) */
+#if !defined(CNO_Log_Global)
+#define CNO_Log_Global(...) CNO_Log(CNO_Transports_Global,__VA_ARGS__)
+#endif /* !defined(CNO_Log_Global) */
 cno_mutex_type CNO_GlobalLog_Mutex;
 #endif /*!defined(CNO_NO_GLOBAL_STATE)*/
 
 //[bold] Error: [dim] file (line): [normal] function (time unix/clock): message (errno: strerror | other error messages)
 cno_u8_type CNO_Log_Init();
-/*cno_u8_type CNO_Log_Transport_AddGlobal(CNO_Transport_type transport);
-cno_u8_type CNO_Log_Transport_ClearGlobal();
-cno_u8_type CNO_Log_Global(cno_string_type process, cno_string_type file, cno_string_type function, CNO_Log_Priority_type priority, cno_string_type format, ...);*/
 cno_u8_type CNO_Log_Transport_Add(CNO_Transport_type *transports, CNO_Transport_type transport);
 cno_u8_type CNO_Log_Transport_Clear(CNO_Transport_type *transports);
-cno_u8_type CNO_Log(CNO_Transport_type *transports, cno_string_type process, cno_cstring_type file, cno_cstring_type function, CNO_Log_Priority_type priority, cno_cstring_type format, ...);
+cno_u8_type CNO_Log(CNO_Transport_type *transports, cno_cstring_type process, cno_cstring_type file, cno_cstring_type function, CNO_Log_Priority_type priority, cno_string_type format, ...);
 cno_u8_type CNO_Log_Test();
 cno_u8_type CNO_Log_Quit();
 
