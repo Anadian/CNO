@@ -1,30 +1,48 @@
-//cno_log.c
-
+filecommenttm(source/cno_log.c,)
 #include "cno_log.h"
 
 #include "cno_string.h"
+#include "cno_time.h"
+#include "cno_filestream.h"
+#include "cno_application.h"
 
-#if CNO_HAVE_STDIO
-#include <stdio.h> //sprintf, f*,
-#endif //CNO_HAVE_STDIO
-#if CNO_HAVE_ERRNO
-#include <errno.h> //errno
-#endif //CNO_HAVE_ERRNO
+#if C\H\STRETCHY_BUFFER
+#include "stretchy_buffer.h"
+#endif /* C\H\STRETCHY_BUFFER */
 
-cno_u8_type CNO_Log_OpenFile_private(cno_file_type *filehandle, CNO_Log_type *log);
-cno_u8_type CNO_Log_CloseFile_private(CNO_Log_type *log);
-
-cno_u8_type CNO_Log_Init(/*CNO_Log_type *log, CNO_Log_Priority_type verbosity, cno_u8_type colour, cno_u8_type stream, cno_cstring_type filename*/){
-	cno_u8_type _return;
-#if CNO_LOG_ENGINE == CNO_LOG_ENGINE_STDIO && !defined(CNO_NO_GLOBAL_STATE)
-	CNO_Mutex_Lock(&CNO_Log_Mutex);
-	cno_string_type time_string = CNO_Time_StringFromCurrent();
-	CNO_String_Concatenate(&time_string, ".log");
-	CNO_GlobalLog = {verbosity = 5, colour = 1, stream = 2, file = time_string, persist = 0,  overwrite = 0};
-	
+c\u8\ty C\Log_Init(){
+	c\u8\ty _return = 0;
+#if !defined(CNO_NO_GLOBAL_STATE)
+	C\Log_Transport\ty transport = {CNO_Log_Priority_Debug, CNO_Log_Type_File, {"cno.log", 0, 0}};
+	sb_push(CNO_Transports_Global, transport);
+	transport = {CNO_Log_Priority_Info, CNO_Log_Type_Stream, {CNO_Application.stderr, 1}};
+	sb_push(CNO_Transports_Global, transport);
+	_return = 1;
 #else
 	_return = 0;
-#endif //CNO_LOG_ENGINE == CNO_LOG_ENGINE_STDIO && !defined(CNO_NO_GLOBAL_STATE)
+#endif /* !defined(CNO_NO_GLOBAL_STATE) */
 	return _return;
 }
+c\u8\ty C\Log(C\Transport\ty *transports, c\string\ty process, c\string\ty file, c\string\ty function, C\Log_Priority\ty priority, c\string\ty format, ...){
+	c\u8\ty _return = 0;
+	va_list arguments;
+	c\string\ty message;
+	c\u8\ty buffer[256];
+	c\size\ty transport_index = 0;
+	if(transports == NULL){
+		transports = CNO_Transports_Global;
+	}
+	if(process == NULL){
+		
 	
+}
+c\u8\ty C\Log_Quit(){
+	c\u8\ty _return = 0;
+#if !defined(CNO_NO_GLOBAL_STATE)
+	sb_free(CNO_Transports_Global);
+	_return = 1;
+#else
+	_return = 0;
+#endif /* !defined(CNO_NO_GLOBAL_STATE) */
+	return _return;
+}
