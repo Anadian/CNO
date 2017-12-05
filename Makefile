@@ -37,7 +37,7 @@ endif #($(VERBOSE),1)
 
 #mkvar(GIT_COMMIT,$(subst commit ,commit-,$(GIT_CURRENT))
 ifeq ($(origin GIT_COMMIT),undefined)
-GIT_COMMIT=$(subst commit ,commit-,$(GIT_CURRENT)
+GIT_COMMIT=$(subst commit ,commit-,$(GIT_CURRENT))
 endif #($(origin GIT_COMMIT),undefined)
 ifeq ($(VERBOSE),1)
 $(info GIT_COMMIT:$(GIT_COMMIT))
@@ -211,7 +211,7 @@ endif #($(VERBOSE),1)
 
 #mkvar(FLAG_INCLUDE_SEARCH_DIRECTORIES,-I/usr/include -I/usr/local/include -I~/include -I$(INCLUDE_DIRECTORY)
 ifeq ($(origin FLAG_INCLUDE_SEARCH_DIRECTORIES),undefined)
-FLAG_INCLUDE_SEARCH_DIRECTORIES=-I/usr/include -I/usr/local/include -I~/include -I$(INCLUDE_DIRECTORY
+FLAG_INCLUDE_SEARCH_DIRECTORIES=-I/usr/include -I/usr/local/include -I~/include -I$(INCLUDE_DIRECTORY)
 endif #($(origin FLAG_INCLUDE_SEARCH_DIRECTORIES),undefined)
 ifeq ($(VERBOSE),1)
 $(info FLAG_INCLUDE_SEARCH_DIRECTORIES:$(FLAG_INCLUDE_SEARCH_DIRECTORIES))
@@ -219,7 +219,7 @@ endif #($(VERBOSE),1)
 
 #mkvar(FLAG_STATIC_LIBRARY_SEARCH_DIRECTORIES,-L/usr/lib -L/usr/local/lib -L~/lib -L$(STATIC_LIBRARY_DIRECTORY)
 ifeq ($(origin FLAG_STATIC_LIBRARY_SEARCH_DIRECTORIES),undefined)
-FLAG_STATIC_LIBRARY_SEARCH_DIRECTORIES=-L/usr/lib -L/usr/local/lib -L~/lib -L$(STATIC_LIBRARY_DIRECTORY
+FLAG_STATIC_LIBRARY_SEARCH_DIRECTORIES=-L/usr/lib -L/usr/local/lib -L~/lib -L$(STATIC_LIBRARY_DIRECTORY)
 endif #($(origin FLAG_STATIC_LIBRARY_SEARCH_DIRECTORIES),undefined)
 ifeq ($(VERBOSE),1)
 $(info FLAG_STATIC_LIBRARY_SEARCH_DIRECTORIES:$(FLAG_STATIC_LIBRARY_SEARCH_DIRECTORIES))
@@ -281,3 +281,7 @@ help:
 	$(info Available commands, with synonyms:)
 	$(info help: Display this help text.)
 	$(info noop: Print configuration variables and exit.)
+
+test:
+	$(COMPILER) $(FLAGS) source/cno_string.c source/cno_time.c source/cno_filestream.c source/test.c -o a.out
+	./a.out

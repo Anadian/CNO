@@ -120,10 +120,10 @@ extern "C"{
 #define C_COMPILER_HP_ACPP 1
 #define C_COMPILER "HP aC++"
 //#endif //defined(__HP_aCC)
-#if defined(__PGI) || defined(__PGIC__) || defined(__PGIC_MINOR__) || defined(__PGIC_PATCHLEVEL__)
+#elif defined(__PGI) || defined(__PGIC__) || defined(__PGIC_MINOR__) || defined(__PGIC_PATCHLEVEL__)
 #define C_COMPILER_PORTLAND_GROUP 1
 #define C_COMPILER "Portland Group"
-#endif //defined(__PGI) || defined(__PGIC__) || defined(__PGIC_MINOR__) || defined(__PGIC_PATCHLEVEL__)
+//#endif //defined(__PGI) || defined(__PGIC__) || defined(__PGIC_MINOR__) || defined(__PGIC_PATCHLEVEL__)
 #elif defined(__clang__) || defined(__clang_major__) || defined(__clang_minor__) || defined(__clang_patchlevel__)
 #define C_COMPILER_CLANG 1
 #define C_COMPILER "Clang"
@@ -166,13 +166,11 @@ extern "C"{
 #define C_COMPILER_ACC 1
 #define C_COMPILER "ACC"
 #endif //defined(_ACC_)
-#if defined(__CMB__)
-# defined(__VERSION__) || defined(__REVISION__) || defined(__BUILD__)
+#if defined(__CMB__) && (defined(__VERSION__) || defined(__REVISION__) || defined(__BUILD__))
 #define C_COMPILER_ALTIUM_MICROBLAZE 1
 #define C_COMPILER "Altium MicroBlaze C"
 #endif //defined(__CMB__) || defined(__VERSION__) || defined(__REVISION__) || defined(__BUILD__)
-#if defined(__CHC__)
-# defined(__VERSION__) || defined(__REVISION__) || defined(__BUILD__)
+#if defined(__CHC__) && (defined(__VERSION__) || defined(__REVISION__) || defined(__BUILD__))
 #define C_COMPILER_ALTIUM_C_TO_HARDWARE 1
 #define C_COMPILER "Altium C-to-Hardware"
 #endif //defined(__CHC__) || defined(__VERSION__) || defined(__REVISION__) || defined(__BUILD__)
@@ -184,8 +182,7 @@ extern "C"{
 #define C_COMPILER_ARM_COMPILER 1
 #define C_COMPILER "ARM Compiler"
 #endif //defined(__CC_ARM) || defined(__ARMCC_VERSION)
-#if defined(AZTEC_C) || defined(__AZTEC_C__)
-# defined(__VERSION)
+#if defined(AZTEC_C) || defined(__AZTEC_C__) && defined(__VERSION)
 #define C_COMPILER_AZTEC 1
 #define C_COMPILER "Aztec C"
 #endif //defined(AZTEC_C) || defined(__AZTEC_C__) || defined(__VERSION)
@@ -213,13 +210,11 @@ extern "C"{
 #define C_COMPILER_COVERITY 1
 #define C_COMPILER "Coverity C/C++"
 #endif //defined(__COVERITY__)
-#if defined(_CRAYC)
-# defined(_RELEASE) || defined(_RELEASE_MINOR)
+#if defined(_CRAYC) && (defined(_RELEASE) || defined(_RELEASE_MINOR))
 #define C_COMPILER_CRAY 1
 #define C_COMPILER "Cray C"
 #endif //defined(_CRAYC) || defined(_RELEASE) || defined(_RELEASE_MINOR)
-#if defined(__DCC__)
-# defined(__VERSION_NUMBER__)
+#if defined(__DCC__) && defined(__VERSION_NUMBER__)
 #define C_COMPILER_DIAB 1
 #define C_COMPILER "Diab C/C++"
 #endif //defined(__DCC__) || defined(__VERSION_NUMBER__)
@@ -259,8 +254,7 @@ extern "C"{
 #define C_COMPILER_IAR 1
 #define C_COMPILER "IAR C/C++"
 #endif //defined(__IAR_SYSTEMS_ICC__) || defined(__VER__)
-#if defined(__IBMC__) || defined(__IBMCPP__)
-# defined(__COMPILER_VER__)
+#if defined(__IBMC__) || defined(__IBMCPP__) && defined(__COMPILER_VER__)
 #define C_COMPILER_IBM_ZOS
 #define C_COMPILER "IBM z/OS C/C++"
 #endif //defined(__IBMC__) || defined(__IBMCPP__) || defined(__COMPILER_VER__)
@@ -300,8 +294,7 @@ extern "C"{
 #define C_COMPILER_MICROWAY_NDP 1
 #define C_COMPILER "Microway NDP C"
 #endif //defined(__NDPC__) || defined(__NDPX__)
-#if defined(__sgi) || defined(sgi) || defined(_SGI_COMPILER_VERSION)
-# defined(_COMPILER_VERSION)
+#if defined(__sgi) || defined(sgi) || defined(_SGI_COMPILER_VERSION) && defined(_COMPILER_VERSION)
 #define C_COMPILER_MIPSPRO 1
 #define C_COMPILER "MIPSPro"
 #endif //defined(__sgi) || defined(sgi) || defined(_COMPILER_VERSION) || defined(_SGI_COMPILER_VERSION)
@@ -337,8 +330,7 @@ extern "C"{
 #define C_COMPILER_RENESAS 1
 #define C_COMPILER "Renesas"
 #endif //defined(__RENESAS__) || defined(__HITACHI__) || defined(__RENESAS_VERSION__) || defined(__HITACHI_VERSION__)
-#if defined(SASC) || defined(__SASC) || defined(__SASC__)
-# defined(__VERSION__) || defined(__REVISION__)
+#if defined(SASC) || defined(__SASC) || defined(__SASC__) && (defined(__VERSION__) || defined(__REVISION__))
 #define C_COMPILER_SAS 1
 #define C_COMPILER "SAS/C"
 #endif //defined(SASC) || defined(__SASC) || defined(__SASC__) || defined(__VERSION__) || defined(__REVISION__)
@@ -476,7 +468,7 @@ extern "C"{
 #elif defined(BSD) || defined(BSD4_2) || defined(BSD4_3) || defined(BSD4_4) || defined(_SYSTYPE_BSD)
 #define C_SYSTEM_BSD 1
 #define C_SYSTEM "BSD"
-#endif //defined(BSD) || defined(BSD4_2) || defined(BSD4_3) || defined(BSD4_4) || defined(_SYSTYPE_BSD)
+//#endif //defined(BSD) || defined(BSD4_2) || defined(BSD4_3) || defined(BSD4_4) || defined(_SYSTYPE_BSD)
 #elif defined(__GNU__) || defined(__GLIBC__)
 #define C_SYSTEM_GNU 1
 #define C_SYSTEM "GNU"
@@ -1069,7 +1061,8 @@ extern "C"{
 #define C_STANDARD_64BIT_LONG_INT_AND_POINTER 1
 #endif //__LP64__ && _LP64
 #endif //C_PREDEFINED_HELPFUL_MACROS == 1
-/*#if __OPTIMIZE__
+/*
+#if __OPTIMIZE__
 #define __OPTIMIZE__ 1
 #endif //__OPTIMIZE__
 #if __OPTIMIZE_SIZE__
@@ -1077,16 +1070,17 @@ extern "C"{
 #endif //__OPTIMIZE_SIZE__
 #if __NO_INLINE__
 #define __NO_INLINE__ 1
-#endif //__NO_INLINE__*/
-/*#if __REGISTER_PREFIX__
+#endif //__NO_INLINE__
+#if __REGISTER_PREFIX__
 #define __REGISTER_PREFIX__ 1
 #endif //__REGISTER_PREFIX__
 #if __USER_LABEL_PREFIX__
 #define __USER_LABEL_PREFIX__ 1
-#endif //__USER_LABEL_PREFIX__*/
-/*#if __BYTE_ORDER__
+#endif //__USER_LABEL_PREFIX__
+#if __BYTE_ORDER__
 #define __BYTE_ORDER__ 1
-#endif //__BYTE_ORDER__*/
+#endif //__BYTE_ORDER__
+*/
 
 //USEFUL
 //__FILE__ Gives the name of the source/header file, at time of compilation, as a null-terminated byte-string; e.g. "predefined.h".

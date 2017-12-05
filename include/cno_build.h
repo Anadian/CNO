@@ -83,29 +83,9 @@
 #define CNO_BUFFER_MAXSIZE 1024
 #endif //!defined(CNO_BUFFER_MAXSIZE)
 
-#if !defined(CNO_TYPEDEFS_SET)
-typedef size_t cno_size_type;
-typedef unsigned char cno_u8_type;
-typedef signed char cno_s8_type;
-typedef unsigned short cno_u16_type;
-typedef signed short cno_s16_type;
-typedef unsigned long cno_u32_type;
-typedef signed long cno_s32_type;
-typedef unsigned long long cno_u64_type;
-typedef signed long long cno_s64_type;
-typedef float cno_f32_type;
-typedef double cno_f64_type;
-typedef cno_u8_type* cno_buffer_type;
-typedef unsigned char* cno_cstring_type;
-typedef void* cno_utf8_type;
-#if !defined(CNO_noop)
-#define CNO_noop ((void)0)
-#endif //!defined(CNO_noop)
-#define CNO_TYPEDEFS_SET 1
-#endif //!defined(CNO_TYPEDEFS_SET)
-
 /* Static Dependencies */
 /* Standard */
+#define CNO_HAVE_STDDEF 1
 #define CNO_HAVE_STDIO 1
 #define CNO_HAVE_STDLIB 1
 #define CNO_HAVE_STRING 1
@@ -140,6 +120,32 @@ typedef void* cno_utf8_type;
 #define CNO_HAVE_SDL2_TTF 1
 #define CNO_HAVE_SDL2_NET 1
 #endif /* CNO_HAVE_SDL2 */
+
+/* CSI(CNO_HAVE_STDDEF,<stddef.h>) */
+#if CNO_HAVE_STDDEF
+#include <stddef.h>
+#endif /* CNO_HAVE_STDDEF */
+
+#if !defined(CNO_TYPEDEFS_SET)
+typedef size_t cno_size_type;
+typedef unsigned char cno_u8_type;
+typedef signed char cno_s8_type;
+typedef unsigned short cno_u16_type;
+typedef signed short cno_s16_type;
+typedef unsigned long cno_u32_type;
+typedef signed long cno_s32_type;
+typedef unsigned long long cno_u64_type;
+typedef signed long long cno_s64_type;
+typedef float cno_f32_type;
+typedef double cno_f64_type;
+typedef cno_u8_type* cno_buffer_type;
+typedef unsigned char* cno_cstring_type;
+typedef void* cno_utf8_type;
+#if !defined(CNO_noop)
+#define CNO_noop ((void)0)
+#endif //!defined(CNO_noop)
+#define CNO_TYPEDEFS_SET 1
+#endif //!defined(CNO_TYPEDEFS_SET)
 
 #define CNO_DEVICE_UNKNOWN 0
 #define CNO_DEVICE_DESKTOP 1

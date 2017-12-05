@@ -9,12 +9,12 @@ extern "C" {
 
 #include "cno_build.h"
 
-#if C\H\GOPT
+#if CNO_HAVE_GOPT
 #include "gopt.h"
 typedef struct option CNO_Option_type;
 CNO_Option_type CNO_Options = {
 	{'V',"version",(GOPT_ARGUMENT_FORBIDDEN),0,NULL},//Display version information.
-	{'h',"help",(GOPT_ARGUMENT_FORBIDDEN),0,NULL},//Display this help text.
+	/*{'h',"help",(GOPT_ARGUMENT_FORBIDDEN),0,NULL},//Display this help text.
 	{'a',"all",(GOPT_ARGUMENT_FORBIDDEN),0,NULL},//Acknowledge invisible files
 	{'A',"audio",(GOPT_ARGUMENT_FORBIDDEN),0,NULL},//Boolean: Use ANSI/xterm text colouring.
 	//{'b',"about-background",(GOPT_ARGUMENT_FORBIDDEN),0,NULL},//Display information about background process.
@@ -51,14 +51,14 @@ CNO_Option_type CNO_Options = {
 	{'d',"debug",(GOPT_ARGUMENT_FORBIDDEN),0,NULL},//Boolean: Enable debugging.
 	{'v',"verbose",(GOPTARGUMENT_FORBIDDEN),0,NULL},//Number: Sets debug verbosity to the given unsigned integer: 0 being silent; 5 being maximum logging. Defaults to 3, if omitted, and 5, if specified without an argument.
 	{'o',"stdout",(GOPT_ARGUMENT_REQUIRED|GOPT_ARGUMENT_NO_HYPHEN),0,NULL},//Stream: stdout, stderr, FILE, or /dev/null: oh, so many choices.
-	{'e',"error",(GOPT_ARGUMENT_REQUIRED|GOPT_ARGUMENT_NO_HYPHEN),0,NULL},//Stream: Redirect stderr to the given stream; exempli gratia, STDOUT or a the name of a file.
+	{'e',"error",(GOPT_ARGUMENT_REQUIRED|GOPT_ARGUMENT_NO_HYPHEN),0,NULL},//Stream: Redirect stderr to the given stream; exempli gratia, STDOUT or a the name of a file.*/
 	{0,NULL,GOPT_LAST,0,NULL}
 };
 #endif //CNO_ALLOW_OPTIONS
 
 cno_u8_type CNO_Options_Init();
 cno_s8_type CNO_Options_Process(int argc, char *argv[]);
-c\cstring_type CNO_Options_Query(cno_cstring_type key, cno_u32_type *count);
+cno_cstring_type CNO_Options_Query(cno_cstring_type key, cno_u32_type *count);
 cno_u8_type CNO_Options_Quit();
 
 #ifdef __cplusplus

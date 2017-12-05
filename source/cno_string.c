@@ -27,6 +27,11 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include <string.h>
 #endif //CNO_HAVE_UTF8
 
+/* CSI(CNO_HAVE_STDIO,<stdio.h>) */
+#if CNO_HAVE_STDIO
+#include <stdio.h>
+#endif /* CNO_HAVE_STDIO */
+
 cno_u8_type CNO_String_Concatenate(cno_string_type *destination, cno_string_type source){
 	cno_u8_type _return = 0;
 #if CNO_HAVE_UTF8
@@ -91,7 +96,7 @@ cno_u8_type CNO_String_Match(cno_string_type string1, cno_string_type string2){
 			_return = 0;
 		}
 	} else{
-		fprintf(CNO_STDERR, "Error: Couldn't compare strings '%s' and '%s'. (HAVE_STRING: %d HAVE_UTF8: %d)\n", string1, string2, CNO_HAVE_STRING, CNO_HAVE_UTF8);
+		CNO_fprintf(stderr, "Error: Couldn't compare strings '%s' and '%s'. (HAVE_STRING: %d HAVE_UTF8: %d)\n", string1, string2, CNO_HAVE_STRING, CNO_HAVE_UTF8);
 		_return = 0;
 	}
 	return _return;

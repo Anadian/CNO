@@ -38,7 +38,7 @@ cno_s8_type CNO_FileStream_Open(cno_filestream_type *file, cno_cstring_type mode
 cno_s8_type CNO_FileStream_Sync(cno_filestream_type *file){
 	cno_s8_type _return = 1;
 #if CNO_HAVE_STDIO
-	int fflsuh_return = fflush(*file);
+	int fflush_return = fflush(*file);
 	if(fflush_return == 0){
 		_return = 0;
 	} else{

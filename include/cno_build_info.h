@@ -125,6 +125,7 @@ Empty: objective failed.
 Completed/failed objective are greyed out.
 First time through a mission, objectives will be invisible until assigned by a quest giver.
 When replaying a completed mission, all objectives will be shown regardless.
+Objectives can have parent and child objectives, a reason, description, and a target
 
 Game Menu:
 Map
@@ -143,12 +144,13 @@ Resume
 Retry from checkpoint
 Save game
 Load game
-Achievements/Progression(Including Highscores)/Statistics
+Achievements
 Options
 Extras
 Multiplayer
 //Screenshot
 Restart mission
+Abort Mission
 Quit to desktop
 Quit to title screen
 
@@ -156,7 +158,9 @@ Game Over screen:
 Retry from checkpoint
 Load game
 Restart Mission
-Quit to Mission Select
+Abort Mission
+Quit to Main Menu
+Quit to Desktop
 
 Main Menu:
 Story Mode
@@ -168,12 +172,42 @@ Versus Mode
 Party Mode
 Online
 Achievements
-Options
 Extras
+Options
+Quit to Desktop
+
+Achievements:
+Achievements
+Unlockables
+Progress
+Records
+Statistics
 
 Extras:
-Manual (Tutorials/Glossary/Tips)
-Encyclopedia (Characters/Abilities/Transcripts/Maps(including location info))
+Documents
+	Help
+		Manual
+		Glossary
+		Tips
+		Changes
+	Encyclopedia 
+		Characters
+			Information
+			Abilities
+			Combat Statistics
+		Locations
+			Maps
+			Info
+			Discoveries
+		Items
+			Consumable
+			Equipment
+			Resources
+			Key Items
+		Logs
+			Text Files
+			Notes
+			Transcripts
 Pictures
 Replays
 Gallery (Animations/Cutscenes)
@@ -492,7 +526,7 @@ knowledge,
 
 debuffs:
 slow
-burn
+burn/weaken
 syphon
 freeze
 poison
