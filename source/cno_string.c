@@ -35,10 +35,10 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 cno_u8_type CNO_String_Concatenate(cno_string_type *destination, cno_string_type source){
 	cno_u8_type _return = 0;
 #if CNO_HAVE_UTF8
-	utf8cat((*destination), source);
+	utf8cat(destination, source);
 	_return = 1;
 #elif CNO_HAVE_STRING
-	strcat((*destination), source);
+	strcat(destination, source);
 	_return = 1;
 #else
 	_return = 0;
@@ -48,10 +48,10 @@ cno_u8_type CNO_String_Concatenate(cno_string_type *destination, cno_string_type
 cno_u8_type CNO_String_Copy(cno_string_type *destination, cno_string_type source){
 	cno_u8_type _return = 0;
 #if CNO_HAVE_UTF8
-	utf8cpy((*destination), source);
+	utf8cpy(destination, source);
 	_return = 1;
 #elif CNO_HAVE_STRING
-	strcpy((*destination), source);
+	strcpy(destination, source);
 	_return = 1;
 #else
 	_return = 0;

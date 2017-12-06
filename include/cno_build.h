@@ -138,7 +138,6 @@ typedef unsigned long long cno_u64_type;
 typedef signed long long cno_s64_type;
 typedef float cno_f32_type;
 typedef double cno_f64_type;
-typedef cno_u8_type* cno_buffer_type;
 typedef unsigned char* cno_cstring_type;
 typedef void* cno_utf8_type;
 #if !defined(CNO_noop)

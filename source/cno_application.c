@@ -22,16 +22,17 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #include "cno_application.h"
 
-cno_s8_type CNO_Application_Init(CNO_Application_type *application, int argc, char *argv[]){
-	cno_s8_type _return = 1;
-	CNO_Application.running = 0;
-	CNO_Application.awake = 0;
-	CNO_Application.focused = 0;
-	CNO_Application.initialized = 0;
-	CNO_Application.quit = 0;
-	CNO_Application.loops = 0;
-	CNO_Application.threads = 0;
-	CNO_Application.start_time = CNO_Time_Unix();
-	CNO_String_Copy(CNO_Application.process_name,argv[0]);
-	CNO_Build_Info_Init(CNO_Application.build_info);
-	CNO_Environment_Init(CNO_Application.environment);
+cno_u8_type CNO_Application_Create(application_type *application, int argc, char *argv[]){
+	cno_u8_type _return = 0;
+	application->running = 0;
+	application->awake = 0;
+	application->focused = 0;
+	application->initialized = 0;
+	application->quit = 0;
+	application->loops = 0;
+	application->threads = 0;
+	CNO_Time_Unix(&(*(application).start_time));
+	CNO_String_Copy(&(*(application).process_name),argv[0]);
+	CNO_Build_Info_Create(&(*(application).build_info));
+	CNO_Environment_Create(&(*(application).environment));
+	CNO_Options_Create(&(*(application).options), argc, argv);

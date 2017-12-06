@@ -6,6 +6,11 @@
 #include <time.h> //time, gmtime, strftime
 #endif //CNO_HAVE_TIME
 
+/* CSI(CNO_HAVE_STDIO,<stdio.h>) */
+#if CNO_HAVE_STDIO
+#include <stdio.h>
+#endif /* CNO_HAVE_STDIO */
+
 cno_u8_type CNO_Time_Unix(cno_unixtime_type *unix_time){
 	cno_u8_type _return = 0;
 #if CNO_HAVE_TIME
@@ -32,10 +37,12 @@ cno_u8_type CNO_Time_CalendarFromUnix(cno_calendartime_type *calendar_time, cno_
 }
 cno_u8_type CNO_Time_StringFromCalendar(cno_string_type *string, cno_calendartime_type calendar_time){
 	cno_u8_type _return = 0;
+	//CNO_fprintf(stderr, "%s %d\n", string, calendar_time);
 #if CNO_HAVE_TIME
-	cno_u8_type buffer[20];
+	cno_u8_type buffer[64];
 	strftime(buffer, sizeof(buffer), "%Y-%m-%dT%H:%M:%SZ", &calendar_time);
-	CNO_String_Copy(*string, buffer);
+	//CNO_fprintf(stderr, "Yo. %s\n", buffer);
+	CNO_String_Copy(string, buffer);
 	_return = 1;
 #endif //CNO_HAVE_TIME
 	return _return;

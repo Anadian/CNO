@@ -56,10 +56,8 @@ CNO_Option_type CNO_Options = {
 };
 #endif //CNO_ALLOW_OPTIONS
 
-cno_u8_type CNO_Options_Init();
-cno_s8_type CNO_Options_Process(int argc, char *argv[]);
-cno_cstring_type CNO_Options_Query(cno_cstring_type key, cno_u32_type *count);
-cno_u8_type CNO_Options_Quit();
+c\u8\ty C\Options_Process(C\Settings\ty *settings, int argc, char *argv[]);
+
 
 #ifdef __cplusplus
 }

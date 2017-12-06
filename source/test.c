@@ -36,10 +36,16 @@ int main(int argc, char *argv[]){
 	cno_u8_type time_string[64];
 	cno_filestream_type filestream;
 	CNO_FileStream_AppendPlus(&filestream, "test.log");
+	CNO_fprintf(stderr, "Yo.\n");
 	CNO_Time_Unix(&unix_time);
+	CNO_fprintf(stderr, "Yo.\n");
 	CNO_Time_CalendarFromUnix(&calendar_time, unix_time);
-	CNO_Time_StringFromCalendar(time_string, calendar_time);
+	CNO_fprintf(stderr, "Yo. %d\n", calendar_time);
+	CNO_Time_StringFromCalendar(&time_string, calendar_time);
+	CNO_fprintf(stderr, "Yo. %s\n", time_string);
 	CNO_fprintf(filestream, "Time is %s\n", time_string);
+	CNO_String_Concatenate(&time_string,"yo.");
+	CNO_fprintf(stderr, "time_string: %s\n", time_string);
 	CNO_FileStream_Sync(&filestream);
 	CNO_FileStream_Close(&filestream);
 	return 0;

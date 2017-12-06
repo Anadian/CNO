@@ -1,27 +1,18 @@
-## Regular Expressions
+//cno_settings.h
+
+#ifndef CNO_SETTINGS_H
+#define CNO_SETTINGS_H
+
+#ifdef __cplusplus
+extern "C"{
+#endif //__cplusplus
 
 #if (CNO_SETTINGS_MATCH_ENGINE == CNO_SETTINGS_MATCH_ENGINE_REGEX) && (!defined(CNO_SETTINGS_MATCH_VALIDATION_REGEX) || !defined(CNO_SETTINGS_MATCH_REGEX_NMATCH))
 #define CNO_SETTINGS_MATCH_VALIDATION_REGEX ":([-0-9A-Za-z_ ]*)?:([0-9A-Za-z_]+)?:(([-0-9A-Za-z]+)(=([0-9A-Za-z]))?)?:(0|(([NIRBWAUFDnirbwaufd])[^!?=;]*([!?])(=(((\|)|(([-0-9A-Za-z_.\/\\ ]+)([!?])?)))+)?));"
 #define CNO_SETTINGS_MATCH_REGEX_NMATCH 18
 #endif //(CNO_SETTINGS_MATCH_ENGINE == CNO_SETTINGS_MATCH_ENGINE_REGEX) && (!defined(CNO_SETTING_VALIDATION_REGEX) || !defined(CNO_SETTING_REGEX_NMATCH))
 // Conversion regex: /{":([^:]*):([^:]*):([^:=]*)(=([A-Za-z]))?:([0NIRBWAUFD][!?]?)(=([^;]*))?;","(.*)"},/{CNO_Setting_Type_,"\1","\2",'\5',"\3",'\6',NULL,"\9",NULL,0,0,0,"\8"},/
-
-## Tiers
-/*tier 1 ;
-tier 2 :
-tier 3 =
-tier 4 | :[-0-9A-Za-z_ ]:[0-9A-Za-z_]:[-0-9A-Za-z]=[0-9A-Za-z]:[0-9A-Za-z!?]=[-0-9A-Za-z!?_ ];
-
-number 0-?
-true,on,enabled,yes=1
-false,off,disabled,no=0
-file/directory
-string,subset,ascii,utf8,discrete,fd
-:input:controller engine::D!=none|sdl-joystick!|sdl-controller|xinput|libusb|libgamepad||Engine:Define which backend API (engine), if any, to use for reading joystick/gamepad/controller input.|sdl-joystick:
-:debug:verbosity:verbose=v:N?=3!|5?|0-5;*/
-
-## Types
-```
+// /^{":([A-Za-z ]*)?:([a-z_]*)?:(([-a-z]+)(=([0-9A-Za-z]))?)?:(([0-9A-Z])(([!?])(=((\w+[!?]?)|\|)*)?)?);","(.*)"},/
 typedef enum CNO_Value_Type_enum{
 	CNO_Value_Flag='0',
 	CNO_Value_Natural='N',
@@ -33,13 +24,48 @@ typedef enum CNO_Value_Type_enum{
 	CNO_Value_UTF8='U',
 	CNO_Value_File='F', //file/directory/url
 	CNO_Value_Discrete='D'
-} CNO_Value_Type\t;
-```
+} CNO_Value_Type\ty;
+typedef struct CNO_Setting_struct {
+	cno_cstring_type section;
+	cno_cstring_type config_name;
+	cno_u8_type option_key;
+	cno_cstring_type option_name;
+	CNO_Value_Type_type value_type;
+	cno_cstring_type hint;
+	cno_cstring_type description;
+	cno_cstring_type argument;
+	cno_u8_type hits;
+	union{
+		cno_u8_type value; //natural/boolean
+		cno_s32_type value; //integer
+		cno_f32_type value; //real
+		cno_cstring_type value; //word/ascii/file/discrete
+		cno_utf8_type value; //utf8
+	};
+	union{
+		cno_u8_type default_value; //natural/boolean
+		cno_s32_type default_value; //integer
+		cno_f32_type default_value; //real
+		cno_cstring_type default_value; //word/ascii/file/discrete
+		cno_utf8_type default_value; //utf8
+	};
+	cno_cstring_type valid_values;
+} CNO_Setting_type; //system defaults => user config => options => -C if specified
+	
+/*
+/*tier 1 ;
+tier 2 :
+tier 3 =
+tier 4 | :[-0-9A-Za-z_ ]:[0-9A-Za-z_]:[-0-9A-Za-z]=[0-9A-Za-z]:[0-9A-Za-z!?]=[-0-9A-Za-z!?_ ];
 
-## Format
-:[SECTION]:[CONFIG NAME]:[OPTION NAME](=<OPTION CHARACTER>):<TYPE>([! or ?](=<DEFAULT VALUE>!(|<DEFAULT ARGUMENT>?)(|<RANGE or a|list|of|values>))); [DESCRIPTION]<\n or \r>
+number 0-?
+true,on,enabled,yes=1
+false,off,disabled,no=0
+file/directory
+string,subset,ascii,utf8,discrete,fd
+input:controller engine:D!=none|sdl-joystick!|sdl-controller|xinput|libusb|libgamepad||Engine:Define which backend API (engine), if any, to use for reading joystick/gamepad/controller input.|sdl-joystick:
+debug:verbosity|verbose=v:N?=3!|5?|0-5
 
-```
 {":::version=V:0;","Display version information."},
 {":::help=h:0;","Display this help text."},
 {":::all=a:0;","Acknowledge invisible files"},
@@ -82,7 +108,7 @@ typedef enum CNO_Value_Type_enum{
 {":debug:verbosity:verbose=v:N?=3!|5?|0-5;""Number: Sets debug verbosity to the given unsigned integer: 0 being silent; 5 being maximum logging. Defaults to 3, if omitted, and 5, if specified without an argument."},
 {":debug:standard_output:stdout=o:F!=stdout!;","Stream: stdout, stderr, FILE, or /dev/null: oh, so many choices."},
 {":debug:standard_error:stderr=e:F!=stderr!;","Stream: Redirect stderr to the given stream; exempli gratia, STDOUT or a the name of a file."},
-//{":debug:file::B!=true!|false;","Boolean: Enable logging to a file."},
+{":debug:file::B!=true!|false;","Boolean: Enable logging to a file."},
 {":debug:log_filename:log=l:F!=cno.log!;","File: Name of the file to be used for logging."},
 {"::dialogs::B!=true!|false;","Boolean: Sets whether to allow using external file dialogs."},
 {"::environment::B!=true!|false;","Boolean: Sets whether to look for environment variables while initialising."},
@@ -140,4 +166,16 @@ typedef enum CNO_Value_Type_enum{
 {":directories:portable::B!=true!|false;","Boolean: Only use directory containing this executable/binary for storing and retrieving data: portable-style ./; as opposed to unix-style: /usr/local/* and ~/*."},
 {":directories:engine_data::F!=./engine!;","Directory: The directory, in which, the engine data can be found."},
 {":directories:user_data::F!=./data!;","Directory: The directory, in which, user data should be saved."}
-```
+cno_u8_type CNO_Settings_Init(CNO_Setting_type *settings);
+cno_u8_type CNO_Settings_Default(CNO_Settings_type *settings);
+cno_u8_type CNO_Settings_GetOpt(CNO_Settings_type *settings, int argc, char *argv[]);
+cno_u8_type CNO_Settings_Save(CNO_Settings_type *settings, cno_cstring_type filename);
+cno_u8_type CNO_Settings_Load(CNO_Settings_type *settings, cno_cstring_type filename);
+cno_u8_type CNO_Settings_Quit(CNO_Setting_type *settings);
+
+
+#ifdef __cplusplus
+}
+#endif //__cplusplus
+
+#endif //CNO_SETTINGS_H

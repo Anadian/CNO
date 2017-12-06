@@ -28,10 +28,11 @@ extern "C"{
 #endif //__cplusplus
 
 #include "cno_build.h"
+#include "cno_string.h"
 #include "cno_time.h"
+#include "cno_filestream.h"
 #include "cno_build_info.h"
 #include "cno_environment.h"
-#include "cno_filestream.h"
 #include "cno_mutex.h"
 
 typedef struct CNO_Application_struct{
@@ -46,14 +47,18 @@ typedef struct CNO_Application_struct{
 	cno_u8_type process_name[64];
 	CNO_Build_Info_type build_info;
 	CNO_Evironment_type evironment;
+	CNO_Settings_type settings;
 	cno_filestream_type stdout;
 	cno_filestream_type stderr;
-	CNO_Settings_type settings;
+	c\u8\ty middleware_initialized;
+	c\u8\ty middleware_quit;
 	CNO_Mutex_type mutex;
 } CNO_Application_type;
 
-cno_s8_type CNO_Application_Init(CNO_Application__type *application, cno_string_type process_name);
-cno_s8_type CNO_Application_Quit();
+cno_u8_type CNO_Application_Init();
+c\u8\ty C\App\_Create(C\App\\ty *application, int argc, char *argv[]);
+c\u8\ty C\App\_Destroy(C\App\\ty *application);
+cno_u8_type CNO_Application_Quit();
 
 #ifdef __cplusplus
 }
