@@ -12,7 +12,7 @@ extern "C"{
 #define CNO_SETTINGS_MATCH_REGEX_NMATCH 18
 #endif //(CNO_SETTINGS_MATCH_ENGINE == CNO_SETTINGS_MATCH_ENGINE_REGEX) && (!defined(CNO_SETTING_VALIDATION_REGEX) || !defined(CNO_SETTING_REGEX_NMATCH))
 // Conversion regex: /{":([^:]*):([^:]*):([^:=]*)(=([A-Za-z]))?:([0NIRBWAUFD][!?]?)(=([^;]*))?;","(.*)"},/{CNO_Setting_Type_,"\1","\2",'\5',"\3",'\6',NULL,"\9",NULL,0,0,0,"\8"},/
-// /^{":([A-Za-z ]*)?:([a-z_]*)?:(([-a-z]+)(=([0-9A-Za-z]))?)?:(([0-9A-Z])(([!?])(=((\w+[!?]?)|\|)*)?)?);","(.*)"},/
+// /^{":([0-9A-Za-z ]*)?:([0-9a-z_]*)?:(([-a-z]+)(=([0-9A-Za-z]))?)?:(([0-9A-Z])(([!?])(=(([0-9A-Za-z._\/-]+[!?]?)|\|)*)?)?);", ?"((\w*):)?(.*)"},?/
 typedef enum CNO_Value_Type_enum{
 	CNO_Value_Flag='0',
 	CNO_Value_Natural='N',

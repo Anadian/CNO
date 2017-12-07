@@ -285,3 +285,5 @@ help:
 test:
 	$(COMPILER) $(FLAGS) source/cno_string.c source/cno_time.c source/cno_filestream.c source/test.c -o a.out
 	./a.out
+test2:
+	$(COMPILER) $(FLAGS) 
