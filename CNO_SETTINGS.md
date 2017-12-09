@@ -60,7 +60,7 @@ typedef enum CNO_Value_Type_enum{
 {":::noop=n:0;","Describe what this software would do, and what files it would change, without actually doing or changing anything."},
 {":::newdefaults=N:0;","Create new default files."},
 {":::output=O:F!;","File: Tells the program to \"put out\" to the given file: whatever that means."},
-{":::pipe=p:0;","But where's postprocess?"},
+{":::preprocess=p:0;","But where's postprocess?"},
 {":::prefix=P:F!;","Directory: Adds the given directory to the list of directories which contain directories, each containing list of directories to be searched to find files which list where to find the directories containing the needed files."},
 {":::quiet=q:0;","... please."},
 {":::query=Q:U!;","UTF8 query string:"},
