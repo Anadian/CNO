@@ -602,6 +602,19 @@ Hard: Recommended for action-RPG veterans accustom to old-school difficulty or p
 Very Hard: Recommended for masters of the game. Like Hard mode except attack and defence are both halved, items cost more and there is no regen at all. Neither miracles, criticals, nor item drops are in effect. Optimal resource management is required. Not recommend for first playthroughs.
 Impossible: A gimmick difficulty, this mode is like Very Hard except you die in one hit. Optimal resource management probably still won't be enough.
 
+Gimmicks (for arcade mode):
+Game Speed (0.5, 1, 2, 3, 4)
+Set Lives (0 for permadeath)
+Set Levelcap
+Permanent Ailments
+Require Medals
+Enemy/Boss
+	HP (Regen/Invincible)
+	Visibility (Invisible, near, Projectiles?)
+	Level Multiplier
+Shuffle (enemies, rooms, bosses, abilities, items)
+
+
 Save game must show in-game time, real-world save time, and preferably screenshot.
 Three auto save slots (action/room/stage), three quick save slots, at least five hard save slots, one suspension save slot. per profile
 Only host and official servers can record replays.
