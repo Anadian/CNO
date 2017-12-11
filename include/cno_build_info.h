@@ -81,6 +81,8 @@ Inventory/Command (BL), Contextual (BC), Enemy Info (BR)/picture-in-picture
 
 hint/tutorials: off, optional, automatic
 
+Text engine, optionally, allows for: mustache-style variable lookups, inline markdown, and RTL.
+
 AI:
 Reaction 0-10
 Accuracy(skill) 0-10
@@ -189,7 +191,10 @@ Documents
 		Manual
 		Glossary
 		Tips
+		Credits
 		Changes
+		Attributions
+		License
 	Encyclopedia 
 		Characters
 			Information
@@ -277,8 +282,9 @@ mic sensitivity
 
 Text:
 text language
-speed
-scroll
+delay
+auto-scroll
+wrapping to character, word, sentence
 gameplay subtitles (lang)
 font-size
 format (colours)
