@@ -435,6 +435,12 @@ speed v. power
 
 Criticals deal x4 damage.
 
+Elemental:±0.2
+HP=(Level*100)
+Attack=AttackStyle+(Level*Strength)+(WeaponDamage)
+Defence=((Level*8)+(Level*Constitution))+(Armor)
+Damage=(Attack*Elemental*(Attack/(Attack+Defence)))*critical
+Wepon/Armor=0-400
 actions:
 run,
 jump,
