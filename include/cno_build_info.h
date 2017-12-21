@@ -577,6 +577,7 @@ Medals:
 Perfect: Take no damage. 4
 Durable: Never heal. 1
 
+Independent: Depend on no allies. 1
 Minimal: Use 'minimal' selected equipment. 1
 Zeroest: Complete stage while depraved of any equipment or items. 3
 
@@ -587,6 +588,7 @@ Psycho: Kill everyone. 3
 Stealth: No alarms. 1
 Ghost: No one even noticed you were there. 3
 
+Instantaneous: Beat dev time. 3
 Speedy: Beat par-time. 1
 Combo: High combo. //Can combo corpse offset streak 1
 Streak: Sustaining a long kill streak. 1
@@ -594,10 +596,18 @@ Efficiency: Kill multiple targets at once. 1
 
 Sharp: Never miss. 1
 Ascetic: Minimize collectibles and powerups. 1
+Optimal: Complete the stage with as few button presses as possible. 3
+Eloquent: Efficiency. 4
 
 Collector: Find all hidden collectibles. 1
 Methodical: Collect all items. 3
 
+Adept: Succeed in all task skillfully. 2
+Wheelman: Never crash a vehicle. 1
+Stuntman: Cool stunts, bro. 2
+Abiding: Abide the law. 2
+
+Sensitive: Talk your way out of everything 2
 Conversational: Talk to a lot of people. 2
 Introvert: Talk to no one. 1
 
