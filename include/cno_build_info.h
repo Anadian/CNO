@@ -577,6 +577,7 @@ Medals:
 Perfect: Take no damage. 4
 Durable: Never heal. 1
 
+Friend: Help your teammates. 2 REBALANCE TOMORROWvbb nnm
 Independent: Depend on no allies. 1
 Minimal: Use 'minimal' selected equipment. 1
 Zeroest: Complete stage while depraved of any equipment or items. 3
@@ -606,6 +607,12 @@ Adept: Succeed in all task skillfully. 2
 Wheelman: Never crash a vehicle. 1
 Stuntman: Cool stunts, bro. 2
 Abiding: Abide the law. 2
+
+Leader: Dominate the battlefield. 4
+Inspirational: Get progressively better. 3
+Volatile: Change place a lot. 1
+Consistent: Hold your position. 1
+Victim: It's just not fair. 1
 
 Sensitive: Talk your way out of everything 2
 Conversational: Talk to a lot of people. 2

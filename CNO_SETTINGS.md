@@ -136,6 +136,7 @@ typedef enum CNO_Value_Type_enum{
 {":video:height::N!=480!|0-65_535;","Number: The height (vertical size) of the window in pixels."},
 {":video:bits_per_pixel::N!=32!|0-32;","Number: The colour depth of window/display in bits per pixel; not to be confused with bytes per pixel."},
 {":video:exclusive_fullscreen::B!=true|false!;","Boolean: Whether to prefer exclusive (\"real\") fullscreen (changing the desktop display mode to rendering resolution) over windowed/borderless (\"fake\") fullscreen."},
+{":video:vsync::N!=1!|0-3;","Natural: Number of buffers, if any, to use when rendering."},
 {":video:framerate::N!=0!|0-120;","Number: How many times the render area should be refreshed (re-rendered) in a second (hertz); also commonly known as frames per second (FPS) or refresh rate. 0 will disable frame limiting altogether allowing the screen to be rendered as many times-a-second as it can (unlimited frames per second)."},
 {":video:resizable::B!=true!|false;","Boolean: Allows windows to be resized but pulling on their edge."},
 {":video:borderless::B!=true|false!;","Boolean: Makes windows borderless, essentially, removing the titlebar and the close/minimize buttons, showing only the rendering area."},
