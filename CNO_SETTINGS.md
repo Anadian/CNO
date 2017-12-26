@@ -23,16 +23,16 @@ string,subset,ascii,utf8,discrete,fd
 ## Types
 ```
 typedef enum CNO_Value_Type_enum{
-	CNO_Value_Flag='0',
-	CNO_Value_Natural='N',
-	CNO_Value_Integer='I',
-	CNO_Value_Real='R',
-	CNO_Value_Boolean='B',
-	CNO_Value_Word='W', //[A-Za-z0-9_]
-	CNO_Value_ASCII='A',
-	CNO_Value_UTF8='U',
-	CNO_Value_File='F', //file/directory/url
-	CNO_Value_Discrete='D'
+	CNO_Value_Flag='0', u8
+	CNO_Value_Natural='N', u16
+	CNO_Value_Integer='I', s32
+	CNO_Value_Real='R', f32
+	CNO_Value_Boolean='B', u8
+	CNO_Value_Word='W', //[A-Za-z0-9_] u8[32]
+	CNO_Value_ASCII='A', u8[256]
+	CNO_Value_UTF8='U', u8[1024]
+	CNO_Value_File='F', //file/directory/url u8[1024]
+	CNO_Value_Discrete='D' u8[32]
 } CNO_Value_Type\t;
 ```
 
