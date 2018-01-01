@@ -59,7 +59,7 @@ HUD placement:
 status:
 name, level/lives, state
 hp, bar-red, curent/max ±delta
-/mp, bar-green, current/max ±delta //not Kirby
+/mp/stamina, bar-green, current/max ±delta //not Kirby
 //ap acton-points?
 //ep, bar-blue, current/max ±delta //not Kirby
 
@@ -221,15 +221,16 @@ Leaderboards
 DLC
 
 Options:
-Display
-Sound
-Text
+Video
+Audio
 Input
+Text
+System
 Controls
 Camera
 Network
 Graphics
-System
+Sound
 Game
 
 Display:
