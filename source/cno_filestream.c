@@ -12,15 +12,15 @@
 #endif //CNO_HAVE_STRING
 #endif //CNO_HAVE_ERRNO
 
-cno_s8_type CNO_FileStream_Open(cno_filestream_type *file, cno_cstring_type mode, cno_string_type filename){
-	cno_s8_type _return = 1;
+cno_u8_type CNO_FileStream_Open(cno_filestream_type *file, cno_cstring_type mode, cno_string_type filename){
+	cno_u8_type _return = 1;
 #if CNO_HAVE_STDIO
 	cno_filestream_type filehandle = fopen(filename, mode);
 	if(filehandle != NULL){
 		_return = 0;
 		*file = filehandle;
 	} else{
-		_return = 2;
+		_return = 3;
 		//cno_u8_type message_buffer[CNO_BUFFER_MAXSIZE];
 #if CNO_HAVE_ERRNO && CNO_HAVE_STRING
 		fprintf(stderr, "Error: Couldn't open file '%s': (mode: '%s' errno: %d description: '%s')\n", filename, mode, errno, strerror(errno));
@@ -35,8 +35,8 @@ cno_s8_type CNO_FileStream_Open(cno_filestream_type *file, cno_cstring_type mode
 #endif //CNO_HAVE_STDIO
 	return _return;
 }
-cno_s8_type CNO_FileStream_Sync(cno_filestream_type *file){
-	cno_s8_type _return = 1;
+cno_u8_type CNO_FileStream_Sync(cno_filestream_type *file){
+	cno_u8_type _return = 1;
 #if CNO_HAVE_STDIO
 	int fflush_return = fflush(*file);
 	if(fflush_return == 0){
@@ -49,8 +49,8 @@ cno_s8_type CNO_FileStream_Sync(cno_filestream_type *file){
 #endif //CNO_HAVE_STDIO
 	return _return;
 }		
-cno_s8_type CNO_FileStream_Close(cno_filestream_type *file){
-	cno_s8_type _return;
+cno_u8_type CNO_FileStream_Close(cno_filestream_type *file){
+	cno_u8_type _return = 1;
 #if CNO_HAVE_STDIO
 	int fclose_return = fclose(*file);
 	if(fclose_return == 0){
