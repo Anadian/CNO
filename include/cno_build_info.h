@@ -224,13 +224,13 @@ Options:
 Video
 Audio
 Input
-Text
-System
-Controls
-Camera
 Network
+System
+Text
 Graphics
 Sound
+Controls
+Camera
 Game
 
 Display:
@@ -252,8 +252,10 @@ scale-to-any-resolution, scale-to-nearest-aspect, no-scaling
 [viewport scale if any or nearest-aspect]
 
 Sound: (unless -A)
+audio driver
 audio device
 master volume
+master balance
 gameplay volume
 cutscene/media volume
 menu volume
