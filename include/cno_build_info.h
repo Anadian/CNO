@@ -231,7 +231,8 @@ Graphics
 Sound
 Controls
 Camera
-Game
+Interface
+Gameplay
 
 Display:
 driver
