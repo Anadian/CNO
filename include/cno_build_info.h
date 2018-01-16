@@ -237,7 +237,7 @@ Gameplay
 Display:
 driver
 display
-display mode
+display mode <WIDTH>x<HEIGHT>x<BITS_PER_PIXEL>@<REFRESH_RATE>
 exclusive fullscreen
 xoffset
 yoffset
