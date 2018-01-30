@@ -561,6 +561,64 @@ syphon
 freeze
 poison
 
+rect: x:u32,y:u32,w:u16,h:u16
+point: x:u32,y:u32
+distance: x:s32,y:s32
+cell: #:u16,x:f32/16,y:f32/16,
+pixel: #:u16,x:u16,y:u16,R:u8,G:u8,B:u8
+metre=16px*16px
+set based on cells and points
+map / spaces, tilesets / tiles, spritesheets / cells are all divided into .
+sprite:
+	static:
+		type:u16,
+		name,
+		graphic:
+			bitmap,
+			cell:
+				canvas:
+					dimensions:rect
+					collision:rect,
+					hit:rects,
+					hurt:rects,
+					point,
+				animation-delay,
+				animation-next-cell
+		sound:
+			effects:
+				sample,
+				cell-links
+		level,
+		hp,
+		sp, //suspicion for enemies
+		ep,
+		alignment,
+		strength,
+		constitution,
+		intelligence,
+		agility,
+		dexterity,
+		state,
+		behaviour,
+	dynamic:
+		id:u16,
+		state,
+		cell,
+		hp,
+		sp,
+		ep,
+		mods:
+			rotation,
+			scale,
+			colour,
+		position,
+
+Relative-to:
+World
+Room
+Screen
+Display
+
 Statistics:
 Starts (spawns, state, shoot),
 Successes (kill, completed uninterrupted, hit)
