@@ -1,21 +1,31 @@
-0 Success
-1 Not Supported
-2 Invalid Argument
-3 Sanity Check Failed
-4 Internal Error
-5 Memory Error
-6 File Sysem Error
-7 File Not Found
-8 File Not Readable
-9 File Not Writable
-10 No Space On Device
-11 Network Error
-12 Connection Error
-13 Couldn't Connect To Server
-14 Bad Response
-15 Content Not Found
-16 Request Rejected
-17 Connection Timed Out
-18 Authentication Failed
-19 HTTP Error
-20 Middleware Error
+S0 Pending
+S1 Success
+S2 Not Supported
+S3 Invalid Argument
+S4 Sanity Check Failed
+S5 Internal Error
+
+M2 Memory Error
+M3 Out of Memory
+M4 Bad Allocation
+M5 Memor Throw
+
+F2 File Sysem Error
+F3 Directory does not exist.
+F4 File Not Found
+F5 File Not Readable
+F6 File Not Writable
+F7 File Not Executable
+F7 No Space On Device
+
+N2 Network Error
+N3 Connection Error
+N4 Couldn't Connect To Server
+N5 Bad Response
+N6 Request Rejected
+N7 Connection Timed Out
+N8 Authentication Failed
+
+H<XYZ> HTTP Error
+
+L<x> Middleware Error
