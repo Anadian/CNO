@@ -426,6 +426,28 @@ plasma //strong against
 fungus
 herbal
 
+Properties:
+s8 temperature
+u8 sound
+s8 light (positive emits light/negative is shadows)
+s8 smell (good/bad)
+u16 solidity (gas,plasma,fluid,soft,firm,hard)
+u8 sharpness
+u8 flexibility
+u16 mass
+u8 magnetism
+u8 wetness
+u8 refraction
+u8 friction
+u8 conductivity
+
+Materials:
+Dirt,
+Sand,
+Rock,
+Metal,
+Glass,
+
 attack styles:
 impale/penetrate //effective against biotic enemies and realistic enemies
 slash/burn //all-around
