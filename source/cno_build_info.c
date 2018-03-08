@@ -25,7 +25,7 @@
 #endif /* CNO_HAVE_SDL2 */
 
 
-cno_u8_type CNO_Build_Info_Init(CNO_Build_Info_type *build_info){
+cno_u8_type CNO_Build_Info_Create(CNO_Build_Info_type *build_info){
 	cno_u8_type _return = 0;
 #if CNO_HAVE_STDIO
 	sprintf((*build_info).build_string, "%s-%d-%d-%d %s-%s-%s-%s-%s", CNO_BUILD_NAME, CNO_BUILD_VERSION_MAJOR, CNO_BUILD_VERSION_MINOR, CNO_BUILD_VERSION_PATCH, CNO_BUILD_GOAL, CNO_BUILD_ARCHITECTURE, CNO_BUILD_SYSTEM, CNO_BUILD_COMPILER, CNO_BUILD_COMMIT);
