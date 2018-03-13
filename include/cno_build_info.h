@@ -357,10 +357,34 @@ LB: Pane Left			RB: Pane Right
 Game must require less-than-or-equal-to 16 buttons (plus 2 analogue sticks) while also remaining playable, if unoptimal, with just a dpad and 4 buttons.
 Three-column, two-column, one-column with description, one-column no description
 At most two columns of menu options: hold right to select all.
+Three menu types:
+	Fixed: Main Menu, Pause Menu
+	Variable: File select, API select, user select.
+	Dynamic: Inventory
+Window Menu:
+	File,
+	Edit,
+	View,
+	Window,
+	Help
 //Grid view?
-Menu inputs along the button and top modal overlay.
+Menu inputs along the bottom and top modal overlay.
 GameMenu: Half volume: greyed transparent)
 SystemMenu: Muted: Blacked out at least 90%.
+
+Game must include a launcher capable of downloading updates, and modifying settings with or without running the game.
+
+Style guide:
+	GLOBAL_STATICS
+	GlobalFunctionsAndVariables
+	propertiesAndMethods
+	local_variables
+	Variables are declared at the beginning of their scope.
+	Indentation is done with tabs; one tab character for each level of indentation.
+	Blocks start on the same line as their accompanying statement.
+	At least one blank line between each function.
+	C-style comments.
+
 
 Hold normal: stronger (heavy) melee
 Hold special: buff/change ammo
