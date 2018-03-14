@@ -29,12 +29,12 @@
 cno_u8_type CNO_Environment_Standard_Init(CNO_Environment_Standard_type *environment_standard){
 	cno_u8_type _return = 0;
 #if CNO_HAVE_STDLIB
-	if(getenv("USER") != NULL) CNO_String_Copy(&((*environment_standard).username),getenv("USER"));
-	else if(getenv("USERNAME") != NULL) CNO_String_Copy(&((*environment_standard).username),getenv("USERNAME"));
-	else if(getenv("LOGNAME") != NULL) CNO_String_Copy(&((*environment_standard).username),getenv("LOGNAME"));
-	if(getenv("HOSTNAME") != NULL) CNO_String_Copy(&((*environment_standard).hostname),getenv("HOSTNAME"));
-	if(getenv("PWD") != NULL) CNO_String_Copy(&((*environment_standard).pwd),getenv("PWD"));
-	if(getenv("HOME") != NULL) CNO_String_Copy(&((*environment_standard).home),getenv("HOME"));
+	if(getenv("USER") != NULL) CNO_String_Copy(((*environment_standard).username),getenv("USER"));
+	else if(getenv("USERNAME") != NULL) CNO_String_Copy(((*environment_standard).username),getenv("USERNAME"));
+	else if(getenv("LOGNAME") != NULL) CNO_String_Copy(((*environment_standard).username),getenv("LOGNAME"));
+	if(getenv("HOSTNAME") != NULL) CNO_String_Copy(((*environment_standard).hostname),getenv("HOSTNAME"));
+	if(getenv("PWD") != NULL) CNO_String_Copy(((*environment_standard).pwd),getenv("PWD"));
+	if(getenv("HOME") != NULL) CNO_String_Copy(((*environment_standard).home),getenv("HOME"));
 	_return = 1;
 #endif //CNO_HAVE_STDLIB
 	return _return;
@@ -43,8 +43,8 @@ cno_u8_type CNO_Environment_Standard_Init(CNO_Environment_Standard_type *environ
 cno_u8_type CNO_Environment_WhereAmI_Init(CNO_Environment_WhereAmI_type *environment_whereami){
 	cno_u8_type _return = 0;
 #if CNO_HAVE_WHEREAMI
-	wai_getExecutablePath(&((*environment_whereami).executable_path), sizeof((*environment).whereami.executable_path), NULL);
-	wai_getModulePath(&((*environment_whereami).module_path), sizeof((*environment).whereami.module_path), NULL);
+	wai_getExecutablePath(&((*environment_whereami).executable_path), sizeof((*environment_whereami).executable_path), NULL);
+	wai_getModulePath(&((*environment_whereami).module_path), sizeof((*environment_whereami).module_path), NULL);
 	_return = 1;
 #endif //CNO_HAVE_WHEREAMI
 	return _return;
@@ -120,12 +120,12 @@ cno_u8_type CNO_Environment_ToJSON(JSON_Value *json_value, CNO_Environment_type 
 
 	JSON_Value *sdl2_value = json_value_init_object();
 	JSON_Object *sdl2_object = json_value_get_object(sdl2_value);
-	cjsonsetstring(sdl2,base_path)
-	cjsonsetstring(sdl2,pref_path)
+	JSON_Status set_base_path_return = json_object_set_string(sdl2_object, "base_path", (*environment).sdl2.base_path);
+	JSON_Status set_pref_path_return = json_object_set_string(sdl2_object, "pref_path", (*environment).sdl2.pref_path);
 	JSON_Status set_sdl2_return = json_object_set_value(environment_object, "sdl2", sdl2_value);
 	json_value_free(sdl2_value);
 
-	JSON_Value *xdg_value = json_value_init_object()
+	JSON_Value *xdg_value = json_value_init_object();
 	JSON_Object *xdg_object = json_value_get_object(xdg_value);
 	JSON_Status set_data_home_return = json_object_set_string(xdg_object, "data_home", (*environment).xdg.data_home);
 	JSON_Status set_config_home_return = json_object_set_string(xdg_object, "config_home", (*environment).xdg.config_home);

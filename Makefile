@@ -227,7 +227,7 @@ endif #($(VERBOSE),1)
 
 #mkvar(LINK_FLAGS,)
 ifeq ($(origin LINK_FLAGS),undefined)
-LINK_FLAGS=
+LINK_FLAGS=-lsdl2
 endif #($(origin LINK_FLAGS),undefined)
 ifeq ($(VERBOSE),1)
 $(info LINK_FLAGS:$(LINK_FLAGS))
@@ -260,7 +260,7 @@ endif #($(VERBOSE),1)
 
 #mkvar(TEST2_FILES,$(TEST1_FILES) include/parson.h source/parson.c include/cno_build.h include/c_predefined.h include/cno_environment.h source/cno_environment.c)
 ifeq ($(origin TEST2_FILES),undefined)
-TEST2_FILES=$(TEST1_FILES) include/parson.h source/parson.c include/cno_build.h include/c_predefined.h include/cno_environment.h source/cno_environment.c
+TEST2_FILES=$(TEST1_FILES) include/utf8.h include/whereami.h source/whereami.c include/parson.h source/parson.c include/cno_build.h include/c_predefined.h include/cno_environment.h source/cno_environment.c
 endif #($(origin TEST2_FILES),undefined)
 ifeq ($(VERBOSE),1)
 $(info TEST2_FILES:$(TEST2_FILES))
@@ -303,6 +303,6 @@ test:
 	./a.out
 
 test2:
-	$(COMPILER) $(FLAGS) $(TEST2_FILES) source/test2.c -o a.out
+	$(COMPILER) $(FLAGS) $(TEST2_FILES) source/test2.c
 	./a.out
 
