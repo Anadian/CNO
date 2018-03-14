@@ -9,36 +9,49 @@ extern "C"{
 
 #include "cno_build.h"
 
-typedef struct C\Environment_WhereAmI\s{
-	c\u8\ty executable_path[256];
-	c\u8\ty module_path[256];
-} C\Environment_WhereAmI\ty;
-typedef struct C\Environment_SDL2\s{
-	c\u8\ty base_path[256];
-	c\u8\ty pref_path[256];
-} C\Environment_SDL2\ty;
-typedef struct C\Environment_XDG\s{
-	c\u8\ty data_home[256]; /*~/.local/share*/
-	c\u8\ty config_home[256]; /*~/.config*/
-	c\u8\ty data_directories[CNO_BUFFER_MAXSIZE]; /*/usr/local/share/:/usr/share/*/
-	c\u8\ty config_directories[CNO_BUFFER_MAXSIZE]; /*/etc/config*/
-	c\u8\ty cache_home[256]; /*~/.cache*/
-	c\u8\ty runtime_directory[CNO_BUFFER_MAXSIZE]; /*~/Shared*/
-} C\Environment_XDG\ty;
-
-typedef struct CNO_Environment_struct {
+typedef struct CNO_Environment_Standard_struct{
 	cno_u8_type username[256];
 	cno_u8_type hostname[256];
 	cno_u8_type pwd[256];
 	cno_u8_type home[256];
-	C\Environment_WheraAmI\ty whereami;
-	C\Environment_SDL2\ty sdl2;
-	C\Environment_XDG\ty xdg;
+} CNO_Environment_Standard_type;
+typedef struct CNO_Environment_WhereAmI_struct{
+	cno_u8_type executable_path[256];
+	cno_u8_type module_path[256];
+} CNO_Environment_WhereAmI_type;
+typedef struct CNO_Environment_SDL2_struct{
+	cno_u8_type base_path[256];
+	cno_u8_type pref_path[256];
+} CNO_Environment_SDL2_type;
+typedef struct CNO_Environment_XDG_struct{
+	cno_u8_type data_home[256]; /*~/.local/share*/
+	cno_u8_type config_home[256]; /*~/.config*/
+	cno_u8_type data_directories[CNO_BUFFER_MAXSIZE]; /*/usr/local/share/:/usr/share/*/
+	cno_u8_type config_directories[CNO_BUFFER_MAXSIZE]; /*/etc/config*/
+	cno_u8_type cache_home[256]; /*~/.cache*/
+	cno_u8_type runtime_directory[CNO_BUFFER_MAXSIZE]; /*~/Shared*/
+} CNO_Environment_XDG_type;
+typedef struct CNO_Environment_Network_struct{
 	cno_u8_type ipv4_address[256];
-	c\u8\ty ipv6_address[256];
+	cno_u8_type ipv6_address[256];
+} CNO_Environment_Network_type;
+
+typedef struct CNO_Environment_struct {
+	CNO_Environment_Standard_type standard;
+	CNO_Environment_WheraAmI_type whereami;
+	CNO_Environment_SDL2_type sdl2;
+	CNO_Environment_XDG_type xdg;
+	CNO_Environment_Network network;
 } CNO_Environment_type;
 
-cno_u8_type CNO_Environment_Init();
+cno_u8_type CNO_Environment_Standard_Init(*environment_standard);
+cno_u8_type CNO_Environment_WhereAmI_Init(*environment_whereami);
+cno_u8_type CNO_Environment_SDL2_Init(*environment_sdl2);
+cno_u8_type CNO_Environment_XDG_Init(*environment_xdg);
+
+cno_u8_type CNO_Environment_Init(CNO_Environment_type *environment);
+cno_u8_type CNO_Environment_ToJSON(JSON_Value *json_value, CNO_Environment_type *environment);
+cno_u8_type CNO_Environment_Test();
 
 #ifdef __cplusplus
 }

@@ -250,6 +250,22 @@ ifeq ($(VERBOSE),1)
 $(info FLAGS:$(FLAGS))
 endif #($(VERBOSE),1)
 
+#mkvar(TEST1_FILES,source/cno_string.c source/cno_time.c source/cno_filestream.c)
+ifeq ($(origin TEST1_FILES),undefined)
+TEST1_FILES=source/cno_string.c source/cno_time.c source/cno_filestream.c
+endif #($(origin TEST1_FILES),undefined)
+ifeq ($(VERBOSE),1)
+$(info TEST1_FILES:$(TEST1_FILES))
+endif #($(VERBOSE),1)
+
+#mkvar(TEST2_FILES,$(TEST1_FILES) include/parson.h source/parson.c include/cno_build.h include/c_predefined.h include/cno_environment.h source/cno_environment.c)
+ifeq ($(origin TEST2_FILES),undefined)
+TEST2_FILES=$(TEST1_FILES) include/parson.h source/parson.c include/cno_build.h include/c_predefined.h include/cno_environment.h source/cno_environment.c
+endif #($(origin TEST2_FILES),undefined)
+ifeq ($(VERBOSE),1)
+$(info TEST2_FILES:$(TEST2_FILES))
+endif #($(VERBOSE),1)
+
 
 #Recipes
 ##GNU_Make
@@ -283,7 +299,10 @@ help:
 	$(info noop: Print configuration variables and exit.)
 
 test:
-	$(COMPILER) $(FLAGS) source/cno_string.c source/cno_time.c source/cno_filestream.c source/test.c -o a.out
+	$(COMPILER) $(FLAGS) $(TEST1_FILES) source/test.c -o a.out
 	./a.out
+
 test2:
-	$(COMPILER) $(FLAGS) 
+	$(COMPILER) $(FLAGS) $(TEST2_FILES) source/test2.c -o a.out
+	./a.out
+
