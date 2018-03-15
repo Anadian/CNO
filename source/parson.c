@@ -580,7 +580,7 @@ static char* process_string(const char *input, size_t len) {
                 case '\\': *output_ptr = '\\'; break;
                 case '/':  *output_ptr = '/';  break;
                 case 'b':  *output_ptr = '\b'; break;
-                case 'f':  *output_ptr = '_func'; break;
+                case 'f':  *output_ptr = '\f'; break;
                 case 'n':  *output_ptr = '\n'; break;
                 case 'r':  *output_ptr = '\r'; break;
                 case 't':  *output_ptr = '\t'; break;
@@ -958,7 +958,7 @@ static int json_serialize_string(const char *string, char *buf) {
             case '\\': APPEND_STRING("\\\\"); break;
             case '/':  APPEND_STRING("\\/"); break; /* to make json embeddable in xml\/html */
             case '\b': APPEND_STRING("\\b"); break;
-            case '_func': APPEND_STRING("\_func"); break;
+            case '\f': APPEND_STRING("\\f"); break;
             case '\n': APPEND_STRING("\\n"); break;
             case '\r': APPEND_STRING("\\r"); break;
             case '\t': APPEND_STRING("\\t"); break;
@@ -974,7 +974,7 @@ static int json_serialize_string(const char *string, char *buf) {
             /* '\x09' duplicate: '\t' */
             /* '\x0a' duplicate: '\n' */
             case '\x0b': APPEND_STRING("\\u000b"); break;
-            /* '\x0c' duplicate: '_func' */
+            /* '\x0c' duplicate: '\f' */
             /* '\x0d' duplicate: '\r' */
             case '\x0e': APPEND_STRING("\\u000e"); break;
             case '\x0f': APPEND_STRING("\\u000f"); break;

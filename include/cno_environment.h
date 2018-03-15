@@ -9,6 +9,8 @@ extern "C"{
 
 #include "cno_build.h"
 
+#include "cno_string.h"
+
 /* CSI(CNO_HAVE_PARSON,"parson.h") */
 #if CNO_HAVE_PARSON
 #include "parson.h"
@@ -18,7 +20,7 @@ typedef struct CNO_Environment_Standard_struct{
 	cno_u8_type username[256];
 	cno_u8_type hostname[256];
 	cno_u8_type pwd[256];
-	cno_u8_type home[256];
+	cno_string_type home;
 } CNO_Environment_Standard_type;
 typedef struct CNO_Environment_WhereAmI_struct{
 	cno_u8_type executable_path[256];

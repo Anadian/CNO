@@ -29,11 +29,11 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-/*#if defined(__clang__)
+#if defined(__clang__)
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wold-style-cast"
 #pragma clang diagnostic ignored "-Wcast-qual"
-#endif*/
+#endif
 
 #ifdef __cplusplus
 extern "C" {

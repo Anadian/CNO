@@ -40,6 +40,7 @@ cno_u8_type CNO_Environment_Standard_Init(CNO_Environment_Standard_type *environ
 	if(getenv("PWD") != NULL) CNO_String_Copy(&buffer,getenv("PWD"));
 	buffer = &((*environment_standard).home);
 	if(getenv("HOME") != NULL) CNO_String_Copy(&buffer,getenv("HOME"));
+	CNO_fprintf(stderr, "%s\n", *buffer);
 	_return = 1;
 #endif //CNO_HAVE_STDLIB
 	CNO_fprintf(stderr,"CNO_Environment_Standard_Init returned: %d\n", _return);
@@ -51,7 +52,16 @@ cno_u8_type CNO_Environment_WhereAmI_Init(CNO_Environment_WhereAmI_type *environ
 	CNO_fprintf(stderr, "%s\n", __func__);
 #if CNO_HAVE_WHEREAMI
 	cno_string_type *buffer = &((*environment_whereami).executable_path);
-	wai_getExecutablePath(buffer, sizeof((*environment_whereami).executable_path), NULL);
+	cno_u8_type length = 0;
+	length = wai_getExecutablePath(NULL, 0, NULL);
+	CNO_fprintf(stderr, "length: %d\n", length);
+	cno_u8_type wai_buffer[length + 1];
+	wai_getExecutablePath(wai_buffer, sizeof(wai_buffer), NULL);
+	wai_buffer[length] = '\0';
+	CNO_fprintf(stderr, "wai_buffer: %s\n", wai_buffer);
+	cno_string_type *wai_pointer = wai_buffer;
+	CNO_String_Copy(&buffer, wai_pointer);
+	CNO_fprintf(stderr, "%s\n", (*environment_whereami).executable_path);
 	buffer = &((*environment_whereami).module_path);
 	wai_getModulePath(buffer, sizeof((*environment_whereami).module_path), NULL);
 	_return = 1;

@@ -285,6 +285,8 @@ copy-dependencies:
 	cp -f ~/dev/parson/parson.h include/parson.h
 	cp -f ~/dev/parson/parson.c source/parson.c
 	cp -f ~/dev/tinyheaders/tinyfiles.h include/tinyfiles.h
+	cp -f ~/dev/String/libString/String.h include/libstring.h
+	cp -f ~/dev/String/libString/String.c source/libstring.c
 	
 expand:
 	cd ~/dev/CNO
