@@ -108,7 +108,7 @@
 #define CNO_HAVE_TINYFILEDIALOGS 0
 #define CNO_HAVE_SDS 0
 /* External */
-#define CNO_HAVE_SDL2 1
+#define CNO_HAVE_SDL2 0
 #define CNO_HAVE_ARCHIVE 1
 #define CNO_HAVE_PCRE 0
 #define CNO_HAVE_USB 0

@@ -28,72 +28,97 @@
 
 cno_u8_type CNO_Environment_Standard_Init(CNO_Environment_Standard_type *environment_standard){
 	cno_u8_type _return = 0;
+	CNO_fprintf(stderr,"CNO_Environment_Standard_Init\n");
 #if CNO_HAVE_STDLIB
-	if(getenv("USER") != NULL) CNO_String_Copy(((*environment_standard).username),getenv("USER"));
-	else if(getenv("USERNAME") != NULL) CNO_String_Copy(((*environment_standard).username),getenv("USERNAME"));
-	else if(getenv("LOGNAME") != NULL) CNO_String_Copy(((*environment_standard).username),getenv("LOGNAME"));
-	if(getenv("HOSTNAME") != NULL) CNO_String_Copy(((*environment_standard).hostname),getenv("HOSTNAME"));
-	if(getenv("PWD") != NULL) CNO_String_Copy(((*environment_standard).pwd),getenv("PWD"));
-	if(getenv("HOME") != NULL) CNO_String_Copy(((*environment_standard).home),getenv("HOME"));
+	cno_string_type *buffer = &((*environment_standard).username);
+	if(getenv("USER") != NULL) CNO_String_Copy(&buffer,getenv("USER"));
+	else if(getenv("USERNAME") != NULL) CNO_String_Copy(&buffer,getenv("USERNAME"));
+	else if(getenv("LOGNAME") != NULL) CNO_String_Copy(&buffer,getenv("LOGNAME"));
+	buffer = &((*environment_standard).hostname);
+	if(getenv("HOSTNAME") != NULL) CNO_String_Copy(&buffer,getenv("HOSTNAME"));
+	buffer = &((*environment_standard).pwd);
+	if(getenv("PWD") != NULL) CNO_String_Copy(&buffer,getenv("PWD"));
+	buffer = &((*environment_standard).home);
+	if(getenv("HOME") != NULL) CNO_String_Copy(&buffer,getenv("HOME"));
 	_return = 1;
 #endif //CNO_HAVE_STDLIB
+	CNO_fprintf(stderr,"CNO_Environment_Standard_Init returned: %d\n", _return);
 	return _return;
 }
 
 cno_u8_type CNO_Environment_WhereAmI_Init(CNO_Environment_WhereAmI_type *environment_whereami){
 	cno_u8_type _return = 0;
+	CNO_fprintf(stderr, "%s\n", __func__);
 #if CNO_HAVE_WHEREAMI
-	wai_getExecutablePath(&((*environment_whereami).executable_path), sizeof((*environment_whereami).executable_path), NULL);
-	wai_getModulePath(&((*environment_whereami).module_path), sizeof((*environment_whereami).module_path), NULL);
+	cno_string_type *buffer = &((*environment_whereami).executable_path);
+	wai_getExecutablePath(buffer, sizeof((*environment_whereami).executable_path), NULL);
+	buffer = &((*environment_whereami).module_path);
+	wai_getModulePath(buffer, sizeof((*environment_whereami).module_path), NULL);
 	_return = 1;
 #endif //CNO_HAVE_WHEREAMI
+	CNO_fprintf(stderr, "%s returned: %d\n", __func__, _return);
 	return _return;
 }
 
 cno_u8_type CNO_Environment_SDL2_Init(CNO_Environment_SDL2_type *environment_sdl2){
 	cno_u8_type _return = 0;
+	CNO_fprintf(stderr, "%s\n", __func__);
 #if CNO_HAVE_SDL2
 	cno_string_type sdl2_base_path = SDL_GetBasePath();
 	cno_string_type sdl2_pref_path = SDL_GetPrefPath(CNO_BUILD_ORGANIZATION, CNO_BUILD_NAME);
 	
-	CNO_String_Copy(&((*environment_sdl2).base_path), sdl2_base_path);
-	CNO_String_Copy(&((*environment_sdl2).pref_path), sdl2_pref_path);
+	cno_string_type *buffer = &((*environment_sdl2).base_path);
+	CNO_String_Copy(&buffer, sdl2_base_path);
+	buffer = &((*environment_sdl2).base_path);
+	CNO_String_Copy(&buffer, sdl2_pref_path);
 
 	SDL_free(sdl2_pref_path);
 	SDL_free(sdl2_base_path);
 	
 	_return = 1;
 #endif //CNO_HAVE_SDL2
+	CNO_fprintf(stderr, "%s returned: %d\n", __func__, _return);
 	return _return;
 }
 
 cno_u8_type CNO_Environment_XDG_Init(CNO_Environment_XDG_type *environment_xdg){
 	cno_u8_type _return = 0;
+	CNO_fprintf(stderr, "%s\n", __func__);
 #if CNO_HAVE_STDLIB
-	if(getenv("XDG_DATA_HOME") != NULL) CNO_String_Copy(&((*environment_xdg).data_home), getenv("XDG_DATA_HOME"));
-	else CNO_String_Copy(&((*environment_xdg).data_home), "~/.local/share");
-	if(getenv("XDG_CONFIG_HOME") != NULL) CNO_String_Copy(&((*environment_xdg).config_home), getenv("XDG_CONFIG_HOME"));
-	else CNO_String_Copy(&((*environment_xdg).config_home), "~/.config");
-	if(getenv("XDG_DATA_DIRS") != NULL) CNO_String_Copy(&((*environment_xdg).data_directories), getenv("XDG_DATA_DIRS"));
-	else CNO_String_Copy(&((*environment_xdg).data_directories), "/usr/local/share/:/usr/share/");
-	if(getenv("XDG_CONFIG_DIRS") != NULL) CNO_String_Copy(&((*environment_xdg).config_directories), getenv("XDG_CONFIG_DIRS"));
-	else CNO_String_Copy(&((*environment_xdg).config_directories), "/etc/config");
-	if(getenv("XDG_CACHE_HOME") != NULL) CNO_String_Copy(&((*environment_xdg).cache_home), getenv("XDG_CACHE_HOME"));
-	else CNO_String_Copy(&((*environment_xdg).cache_home), "~/.cache");
-	if(getenv("XDG_RUNTIME_DIR") != NULL) CNO_String_Copy(&((*environment_xdg).runtime_directory), getenv("XDG_RUNTIME_DIR"));
-	else CNO_String_Copy(&((*environment_xdg).runtime_directory), "~/Shared");
+	cno_string_type *buffer = &((*environment_xdg).data_home);
+	if(getenv("XDG_DATA_HOME") != NULL) CNO_String_Copy(&buffer, getenv("XDG_DATA_HOME"));
+	else CNO_String_Copy(&buffer, "~/.local/share");
+	buffer = &((*environment_xdg).config_home);
+	if(getenv("XDG_CONFIG_HOME") != NULL) CNO_String_Copy(&buffer, getenv("XDG_CONFIG_HOME"));
+	else CNO_String_Copy(&buffer, "~/.config");
+	buffer = &((*environment_xdg).data_directories);
+	if(getenv("XDG_DATA_DIRS") != NULL) CNO_String_Copy(&buffer, getenv("XDG_DATA_DIRS"));
+	else CNO_String_Copy(&buffer, "/usr/local/share/:/usr/share/");
+	buffer = &((*environment_xdg).config_directories);
+	if(getenv("XDG_CONFIG_DIRS") != NULL) CNO_String_Copy(&buffer, getenv("XDG_CONFIG_DIRS"));
+	else CNO_String_Copy(&buffer, "/etc/config");
+	buffer = &((*environment_xdg).cache_home);
+	if(getenv("XDG_CACHE_HOME") != NULL) CNO_String_Copy(&buffer, getenv("XDG_CACHE_HOME"));
+	else CNO_String_Copy(&buffer, "~/.cache");
+	buffer = &((*environment_xdg).runtime_directory);
+	if(getenv("XDG_RUNTIME_DIR") != NULL) CNO_String_Copy(&buffer, getenv("XDG_RUNTIME_DIR"));
+	else CNO_String_Copy(&buffer, "~/Shared");
 	_return = 1;
 #endif //CNO_HAVE_STDLIB
+	CNO_fprintf(stderr, "%s returned: %d\n", __func__, _return);
 	return _return;
 }
 
 cno_u8_type CNO_Environment_Init(CNO_Environment_type *environment){
 	cno_u8_type _return = 0;
+	CNO_fprintf(stderr, "CNO_Environment_Init\n");
 	cno_u8_type standard_init_return = CNO_Environment_Standard_Init(&((*environment).standard));
 	cno_u8_type whereami_init_return = CNO_Environment_WhereAmI_Init(&((*environment).whereami));
+	CNO_fprintf(stderr, "%s: Passed WhereAmI\n", __func__);
 	cno_u8_type sdl2_init_return = CNO_Environment_SDL2_Init(&((*environment).sdl2));
 	cno_u8_type xdg_init_return = CNO_Environment_XDG_Init(&((*environment).xdg));
 	if( (standard_init_return == 1) && (whereami_init_return == 1) && (sdl2_init_return == 1) && (xdg_init_return == 1) ) _return = 1;
+	CNO_fprintf(stderr, "CNO_Environment_Init returned: %d\n", _return);
 	return _return;
 }
 
@@ -144,6 +169,7 @@ cno_u8_type CNO_Environment_ToJSON(JSON_Value *json_value, CNO_Environment_type 
 cno_u8_type CNO_Environment_Test(){
 	cno_u8_type _return = 0;
 	CNO_Environment_type *environment;
+	CNO_fprintf(stderr,"CET\n");
 	CNO_Environment_Init(environment);
 #if CNO_HAVE_PARSON
 	JSON_Value *json_value = json_value_init_object();
