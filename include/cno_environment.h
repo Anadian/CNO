@@ -17,30 +17,30 @@ extern "C"{
 #endif /* CNO_HAVE_PARSON */
 
 typedef struct CNO_Environment_Standard_struct{
-	cno_u8_type username[256];
-	cno_u8_type hostname[256];
-	cno_u8_type pwd[256];
-	cno_string_type home;
+	string_t *username;
+	string_t *hostname;
+	string_t *pwd;
+	string_t * home;
 } CNO_Environment_Standard_type;
 typedef struct CNO_Environment_WhereAmI_struct{
-	cno_u8_type executable_path[256];
-	cno_u8_type module_path[256];
+	string_t *executable_path;
+	string_t *module_path;
 } CNO_Environment_WhereAmI_type;
 typedef struct CNO_Environment_SDL2_struct{
-	cno_u8_type base_path[256];
-	cno_u8_type pref_path[256];
+	string_t *base_path;
+	string_t *pref_path;
 } CNO_Environment_SDL2_type;
 typedef struct CNO_Environment_XDG_struct{
-	cno_u8_type data_home[256]; /*~/.local/share*/
-	cno_u8_type config_home[256]; /*~/.config*/
-	cno_u8_type data_directories[CNO_BUFFER_MAXSIZE]; /*/usr/local/share/:/usr/share/*/
-	cno_u8_type config_directories[CNO_BUFFER_MAXSIZE]; /*/etc/config*/
-	cno_u8_type cache_home[256]; /*~/.cache*/
-	cno_u8_type runtime_directory[CNO_BUFFER_MAXSIZE]; /*~/Shared*/
+	string_t *data_home; /*~/.local/share*/
+	string_t *config_home; /*~/.config*/
+	string_t *data_directories; /*/usr/local/share/:/usr/share/*/
+	string_t *config_directories; /*/etc/config*/
+	string_t *cache_home; /*~/.cache*/
+	string_t *runtime_directory; /*~/Shared*/
 } CNO_Environment_XDG_type;
 typedef struct CNO_Environment_Network_struct{
-	cno_u8_type ipv4_address[256];
-	cno_u8_type ipv6_address[256];
+	string_t *ipv4_address;
+	string_t *ipv6_address;
 } CNO_Environment_Network_type;
 
 typedef struct CNO_Environment_struct {
