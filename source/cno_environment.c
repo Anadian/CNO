@@ -28,7 +28,7 @@
 
 cno_u8_type CNO_Environment_Standard_Init(CNO_Environment_Standard_type *environment_standard){
 	cno_u8_type _return = 0;
-	CNO_fprintf(stderr,"CNO_Environment_Standard_Init\n");
+	CNO_fprintf(stderr,"%s\n", __func__);
 #if CNO_HAVE_STDLIB
 	cno_string_type *buffer = &((*environment_standard).username);
 	if(getenv("USER") != NULL) CNO_String_Copy(&buffer,getenv("USER"));
@@ -43,7 +43,7 @@ cno_u8_type CNO_Environment_Standard_Init(CNO_Environment_Standard_type *environ
 	CNO_fprintf(stderr, "%s\n", *buffer);
 	_return = 1;
 #endif //CNO_HAVE_STDLIB
-	CNO_fprintf(stderr,"CNO_Environment_Standard_Init returned: %d\n", _return);
+	CNO_fprintf(stderr,"%s: %d\n", __func__, _return);
 	return _return;
 }
 
