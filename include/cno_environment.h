@@ -20,7 +20,7 @@ typedef struct CNO_Environment_Standard_struct{
 	string_t *username;
 	string_t *hostname;
 	string_t *pwd;
-	string_t * home;
+	string_t *home;
 } CNO_Environment_Standard_type;
 typedef struct CNO_Environment_WhereAmI_struct{
 	string_t *executable_path;

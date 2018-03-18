@@ -551,6 +551,15 @@ void string_print(string_t* str, int add_new_line)
     }
 }
 
+c\u8\ty *CNO_DString_CStringFromDString_Raw(CNO_DString_type* dstring){
+	c\u8\ty *_return = "\0";
+    if(Dstring != NULL) {
+        if(Dstring->length > 0){
+			_return = Dstring->char_array;
+        }
+    }
+	return _return;
+}
 /** \brief Returns a Boolean value indicating whether the string object contains a valid Integer.
  *
  * \param str string_t* A pointer to the string object to check.

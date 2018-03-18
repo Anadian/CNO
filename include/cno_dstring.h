@@ -27,8 +27,16 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 extern "C"{
 #endif /* defined(__cplusplus) */
 
-c\u8\ty C\DString_Create(C\DString\ty *dstring);
-C\DString\ty *C\DString_Create_Raw();
+#include "cno_build.h"
+
+typedef struct CNO_DString\s{
+	c\size\ty length;
+	c\size\ty capacity;
+	c\u8\ty *array;
+} C\DString\ty;
+
+c\u8\ty C\DString_Create(C\DString\ty *dstring, c\size\ty capacity);
+C\DString\ty *C\DString_Create_Raw(c\size\ty capacity);
 
 c\u8\ty C\DString_CreateFromCString(C\DString\ty *dstring, c\string\ty *string);
 C\DString\ty *C\DString_CreateFromCString_Raw(c\string\ty string);

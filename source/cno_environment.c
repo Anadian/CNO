@@ -30,8 +30,8 @@ cno_u8_type CNO_Environment_Standard_Init(CNO_Environment_Standard_type *environ
 	cno_u8_type _return = 0;
 	CNO_fprintf(stderr,"%s\n", __func__);
 #if CNO_HAVE_STDLIB
-	cno_string_type *buffer = &((*environment_standard).username);
-	if(getenv("USER") != NULL) CNO_String_Copy(&buffer,getenv("USER"));
+	(*environment_standard).username = string_init();
+	if(getenv("USER") != NULL) CNO_String_Copy((*envronment_standard).username,getenv("USER"));
 	else if(getenv("USERNAME") != NULL) CNO_String_Copy(&buffer,getenv("USERNAME"));
 	else if(getenv("LOGNAME") != NULL) CNO_String_Copy(&buffer,getenv("LOGNAME"));
 	buffer = &((*environment_standard).hostname);
