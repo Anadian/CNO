@@ -35,6 +35,8 @@ typedef struct CNO_DString\s{
 	c\u8\ty *array;
 } C\DString\ty;
 
+#define CNO_DSTRING_DEFAULT {0,0,NULL}
+
 c\u8\ty C\DString_Create(C\DString\ty *dstring, c\size\ty capacity);
 C\DString\ty *C\DString_Create_Raw(c\size\ty capacity);
 
