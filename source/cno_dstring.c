@@ -56,18 +56,60 @@ C\DString\ty *C\DString_Create_Raw(c\size\ty capacity){
 	return _return;
 }
 
+c\u8\ty C\DString_CreateFromCString( C\DString\ty *dstring, c\string\ty *string ){
+	c\u8\ty _return = 0;
+	c\size\ty string_length = 0;
+
+	c\u8\ty condition1 = (dstring != NULL);
+	c\u8\ty condition2 = (string != NULL);
+	
+	if( condition1 && condition2 ){ /* arguments valid */
+		condition1 = ((*dstring).capacity == 0);
+		condition2 = ((*dstring).array == NULL);
+		if( condition1 && condition2 ){ /* dstring blank */
+			string_length = utf8size( (void*)string );
+			(*dstring).capacity = string_length;
+			(*dstring).array = utf8dup(
+			
+	} else{
+		_return += 1;
+	}
+
+
 c\u8\ty C\DString_Copy(C\DString\ty *target_dstring, C\DString\ty *source_dstring){
 	c\u8\ty _return = 0;
 	c\u8\ty condition1 = 0;
 	c\u8\ty condition2 = 0;
 
-	condition1 = (target_string != NULL);
-	condition2 = (source_string != NULL);
+	condition1 = (target_dstring != NULL);
+	condition2 = (source_dstring != NULL);
 	if( condition1 && condition2 ){
-		condition1 = ((*source_string).capacity > 0);
-		condition2 = ((*source_string).array != NULL);
+		condition1 = ((*source_dstring).capacity > 0);
+		condition2 = ((*source_dstring).array != NULL);
 		if( condition1 && condition2 ){
-			if( 
+			condition1 = ((*target_dstring).capacity > 0);
+			condition2 = ((*target_dstring).array != NULL);
+			if( condition1 && condition2 ){
+				(*target_dstring).capacity = (*source_dstring).capacity;
+				realloc( (*target_dstring).array, ((*target_dstring).capacity * sizeof(c\u8\ty)) );
+				utf8cpy( (void*)((*target_dstring).array), (void*)((*source_dstring).array) ); 
+				(*target_dstring).length = utf8len( (void*)((*target_dstring).array) );
+			} else if( condition1 ){
+				(*target_dstring).capacity = (*source_dstring).capacity;
+				(*target_dstring).array = (c\u8\ty*)(utf8dup((*source_dstring).array));
+				(*target_dstring).length = utf8len( (*target_dstring) );
+			} else {
+				_return += 4;
+			}
+		} else{
+			_return += 2;
+		}
+	} else{
+		_return += 1;
+	}
+
+	return _return;
+}
 
 c\u8\ty C\DString_Destroy(C\DString\ty *dstring){
 	c\u8\ty _return = 0;
