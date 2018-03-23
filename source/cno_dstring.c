@@ -69,7 +69,13 @@ c\u8\ty C\DString_CreateFromCString( C\DString\ty *dstring, c\string\ty *string 
 		if( condition1 && condition2 ){ /* dstring blank */
 			string_length = utf8size( (void*)string );
 			(*dstring).capacity = string_length;
-			(*dstring).array = utf8dup(
+			(*dstring).array = utf8dup( (void*)string );
+			(*dstring).length = utf8len( (void*)((*dstring).array) );
+		} else{
+			string_length = utf8( (void*)string );
+			(*dstring).capacity = string_length;
+			realloc( (*dstring).array, (sizeof(c\u8\ty) * (*dstring).capacity) );
+			(*dstring)
 			
 	} else{
 		_return += 1;
@@ -80,6 +86,7 @@ c\u8\ty C\DString_Copy(C\DString\ty *target_dstring, C\DString\ty *source_dstrin
 	c\u8\ty _return = 0;
 	c\u8\ty condition1 = 0;
 	c\u8\ty condition2 = 0;
+	void *new_pointer = NULL;
 
 	condition1 = (target_dstring != NULL);
 	condition2 = (source_dstring != NULL);
@@ -90,14 +97,24 @@ c\u8\ty C\DString_Copy(C\DString\ty *target_dstring, C\DString\ty *source_dstrin
 			condition1 = ((*target_dstring).capacity > 0);
 			condition2 = ((*target_dstring).array != NULL);
 			if( condition1 && condition2 ){
-				(*target_dstring).capacity = (*source_dstring).capacity;
-				realloc( (*target_dstring).array, ((*target_dstring).capacity * sizeof(c\u8\ty)) );
-				utf8cpy( (void*)((*target_dstring).array), (void*)((*source_dstring).array) ); 
-				(*target_dstring).length = utf8len( (void*)((*target_dstring).array) );
+				new_pointer = realloc( (*target_dstring).array, ((*source_dstring).capacity * sizeof(c\u8\ty)) );
+				if( new_pointer != NULL ){
+					(*dstring).array = (c\u8\ty*)new_pointer;
+					(*target_dstring).capacity = (*source_dstring).capacity;
+					utf8cpy( (void*)((*target_dstring).array), (void*)((*source_dstring).array) ); 
+					(*target_dstring).length = utf8len( (void*)((*target_dstring).array) );
+				} else{
+					_return += 8;
+				}
 			} else if( condition1 ){
-				(*target_dstring).capacity = (*source_dstring).capacity;
-				(*target_dstring).array = (c\u8\ty*)(utf8dup((*source_dstring).array));
-				(*target_dstring).length = utf8len( (*target_dstring) );
+				new_pointer = utf8dup( (void*)((*source_dstring).array) );
+				if( new_pointer != 0 ){
+					(*target_dstring).array = (c\u8\ty*)new_pointer;
+					(*target_dstring).capacity = (*source_dstring).capacity;
+					(*target_dstring).length = utf8len( (*target_dstring) );
+				} else{
+					_return += 16;
+				}
 			} else {
 				_return += 4;
 			}
