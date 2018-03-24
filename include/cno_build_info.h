@@ -434,6 +434,8 @@ Loading-and-freeing/memory usage, preload-everything, preload everything and fre
 Decompress game data
 Mods
 
+A single universal store system, with shooping cart, capable of buying/selling items, buying unlockables, and DLC.
+
 elements:
 water //slow / douse
 fire //burn / melt
