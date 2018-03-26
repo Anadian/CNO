@@ -24,6 +24,47 @@ CSI(C\H\STDLIB,<stdlib.h>)
 
 #include "cno_string.h"
 
+/**
+* @fn C\DString_Calloc
+* @brief Allocates and zeros a new DString.
+* @param C\DString\ty *dstring [out] A pointer to the DString to initialise.
+* @param c\size\ty size [in] The number of bytes to allocate for the new DString; defaults to 256 if NULL.
+* @return c\u8\ty
+* @retval 0 Success
+* @retval 1 Not supported
+* @retval 2 Invalid arguments
+* @retval 3 (*dstring).array isn't NULL.
+* @retval 4 calloc returned NULL.
+*/
+c\u8\ty C\DString_Calloc(C\DString\ty *dstring, c\size\ty size){
+	c\u8\ty _return = 0;
+#if C\H\STDLIB
+	if( dstring != NULL ){
+		if( size == NULL ){
+			size = 256;
+		}
+		if( (*dstring).array == NULL ){
+			(*dstring).array = calloc(size, sizeof(c\u8\ty));
+			if( (*dstring).array != NULL ){
+				(*dstring).capacity = size;
+				(*dstring).length = 0;
+			} else{
+				_return += 4;
+				(*dstring).capacity = 0;
+			}
+		} else{
+			_return += 3;
+		}	
+	} else{
+		_return += 2;
+	}
+#else /* C\H\STDLIB */
+	_return += 1;
+#endif /* C\H\STDLIB */
+	return _return;
+}
+c\u8\ty C\DString_Realloc(C\DString\ty *dstring, c\size\ty size
+
 c\u8\ty C\DString_Create(C\DString\ty *dstring, c\size\ty capacity){
 	c\u8\ty _return = 0;
 	if((*dstring).capacity > 0 && (*dstring).array != NULL){
@@ -59,6 +100,7 @@ C\DString\ty *C\DString_Create_Raw(c\size\ty capacity){
 c\u8\ty C\DString_CreateFromCString( C\DString\ty *dstring, c\string\ty *string ){
 	c\u8\ty _return = 0;
 	c\size\ty string_length = 0;
+	void *new_pointer = NULL;
 
 	c\u8\ty condition1 = (dstring != NULL);
 	c\u8\ty condition2 = (string != NULL);
@@ -74,8 +116,11 @@ c\u8\ty C\DString_CreateFromCString( C\DString\ty *dstring, c\string\ty *string 
 		} else{
 			string_length = utf8( (void*)string );
 			(*dstring).capacity = string_length;
-			realloc( (*dstring).array, (sizeof(c\u8\ty) * (*dstring).capacity) );
+			new_pointer = realloc( (*dstring).array, ((*dstring).capacity * sizeof(c\u8\ty)) );
 			(*dstring)
+			if( new_pointer != NULL ){
+				
+				
 			
 	} else{
 		_return += 1;
@@ -96,7 +141,7 @@ c\u8\ty C\DString_Copy(C\DString\ty *target_dstring, C\DString\ty *source_dstrin
 		if( condition1 && condition2 ){
 			condition1 = ((*target_dstring).capacity > 0);
 			condition2 = ((*target_dstring).array != NULL);
-			if( condition1 && condition2 ){
+			if( condition1 && condition2 ){ /* target_dstring initialised */
 				new_pointer = realloc( (*target_dstring).array, ((*source_dstring).capacity * sizeof(c\u8\ty)) );
 				if( new_pointer != NULL ){
 					(*dstring).array = (c\u8\ty*)new_pointer;
@@ -136,7 +181,7 @@ c\u8\ty C\DString_Destroy(C\DString\ty *dstring){
 		free((*dstring).array);
 		(*dstring).array = NULL;
 	} else{
-		_return++;
+		_return += 1;
 	}
 	return _return;
 }
