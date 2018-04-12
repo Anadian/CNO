@@ -1,9 +1,9 @@
 /**
-*	@file CNO_MEMORY_H
+*	@file cno_memory.h
 *	@brief Dynamic memory routines.
 *	@author Anadian
 *	@license MIT License:
-	Copyright 2017 Canosw
+	Copyright 2018 Canosw
 	Permission is hereby granted, free of charge, to any person obtaining a copy of this 
 software and associated documentation files (the "Software"), to deal in the Software 
 without restriction, including without limitation the rights to use, copy, modify, 
@@ -30,9 +30,42 @@ extern "C"{
 #include "cno_build.h"
 
 
-c\u8\ty C\Memory_Allocate(void *destination_pointer, c\size\ty size, c\size\ty capacity);
-c\u8\ty C\Memory_Reallocate(void *destination_pointer, c\size\ty size, c\size\ty capacity);
-c\u8\ty C\Memory_Free(void *memory_pointer);
+/**
+* @fn CNO_Memory_Allocate
+* @brief Allocate and zero a dynamic block of memory.
+* @param void *output_pointer [out] The pointer to the newly allocate memory block.
+* @param cno_size_type size [in] The size of each block.
+* @param cno_size_type capacity [in] The count of blocks to allocate.
+* @pre CNO_HAVE_STDLIB
+* @return cno_u8_type
+* @retval 0 Success.
+* @retval 1 Not supported.
+* @retval >1 Failure.
+*/
+cno_u8_type CNO_Memory_Allocate( void *output_pointer, cno_size_type size, cno_size_type capacity ){
+/**
+* @fn CNO_Memory_Reallocate
+* @brief Reallocate a, previously-allocated, dynamic-memory block to a new size.
+* @param void *pointer [out] The pointer to the memory block to be reallocated.
+* @param cno_size_type capacity [in] The new capacity of the reallocated memory.
+* @pre CNO_HAVE_STDLIB
+* @return cno_u8_type
+* @retval 0 Success.
+* @retval 1 Not supported.
+* @retval >1 Failure.
+*/
+cno_u8_type CNO_Memory_Reallocate( void *pointer, cno_size_type capacity );
+/**
+* @fn CNO_Memory_Free
+* @brief Free (deallocate) a, previously-allocated, memory block and set the pointer to NULL.
+* @param void *pointer [out] Pointer to the memory block to be freed.
+* @pre CNO_HAVE_STDLIB
+* @return cno_u8_type
+* @retval 0 Success.
+* @retval 1 Not supported.
+* @retval >1 Failure.
+*/
+cno_u8_type CNO_Memory_Free( void *pointer );
 
 
 #if defined(__cplusplus)

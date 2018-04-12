@@ -266,6 +266,14 @@ ifeq ($(VERBOSE),1)
 $(info TEST2_FILES:$(TEST2_FILES))
 endif #($(VERBOSE),1)
 
+#mkvar(MEMORY_TEST_FILES,source/cno_string.h source/cno_filestream.c source/cno_time.c source/cno_memory.c source/memory_test.c)
+ifeq ($(origin MEMORY_TEST_FILES),undefined)
+MEMORY_TEST_FILES=source/cno_string.h source/cno_filestream.c source/cno_time.c source/cno_memory.c source/memory_test.c
+endif #($(origin MEMORY_TEST_FILES),undefined)
+ifeq ($(VERBOSE),1)
+$(info MEMORY_TEST_FILES:$(MEMORY_TEST_FILES))
+endif #($(VERBOSE),1)
+
 
 #Recipes
 ##GNU_Make
@@ -306,5 +314,9 @@ test:
 
 test2:
 	$(COMPILER) $(FLAGS) $(TEST2_FILES) source/test2.c
+	./a.out
+
+memory-test:
+	$(COMPILER) $(FLAGS) $(MEMORY_TEST_FILES) source/memory_test.c -o a.out
 	./a.out
 

@@ -20,27 +20,31 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-CSI(C\H\STDLIB,<stdlib.h>)
+/* CSI(CNO_HAVE_STDLIB,<stdlib.h>) */
+#if CNO_HAVE_STDLIB
+#include <stdlib.h>
+#endif /* CNO_HAVE_STDLIB */
 
 /**
 * @fn CNO_Memory_Allocate
-* @brief Private function for reallocating DString.
+* @brief Allocate and zero a dynamic block of memory.
 * @param void *output_pointer [out] The pointer to the newly allocate memory block.
-* @param c\size\ty size [in] The size of each block.
-* @param c\size\ty capacity [in] The count of blocks to allocate.
-* @pre C\H\STDLIB
+* @param cno_size_type size [in] The size of each block.
+* @param cno_size_type capacity [in] The count of blocks to allocate.
+* @pre CNO_HAVE_STDLIB
 * @return cno_u8_type
 * @retval 0 Success.
 * @retval 1 Not supported.
 * @retval >1 Failure.
 */
-cno_u8_type CNO_Memory_Allocate(void *output_pointer, c\size\ty size, c\size\ty capacity){
+cno_u8_type CNO_Memory_Allocate(void *output_pointer, cno_size_type size, cno_size_type capacity){
 	cno_u8_type _return = 0;
 	/* Variables */
 	
-#if C\H\STDLIB
+#if CNO_HAVE_STDLIB
+
 	if( size == 0 ){
-		size = sizeof(c\u8\ty);
+		size = sizeof(cno_u8_type);
 		_return += 2;
 	}
 	if( capacity == 0 ){
@@ -48,14 +52,87 @@ cno_u8_type CNO_Memory_Allocate(void *output_pointer, c\size\ty size, c\size\ty 
 		_return += 3;
 	}
 	if( output_pointer == NULL ){
-		output_pointer = calloc(capacity,size);
+		output_pointer = calloc(capacity, size);
 		if( output_pointer == NULL ){
 			_return += 8;
+		}
+	} else{
+		free(output_pointer);
+		_return += 4;
+		output_pointer = calloc(capacity, size);
+		if( output_pointer == NULL ){
+			_return += 9;
 		}
 	}
 #else
 	_return += 1;
-#endif /* C\H\STDLIB */
+#endif /* CNO_HAVE_STDLIB */
+	/* Return */
+	return _return;
+}
+
+/**
+* @fn CNO_Memory_Reallocate
+* @brief Reallocate a, previously-allocated, dynamic-memory block to a new size.
+* @param void *pointer [out] The pointer to the memory block to be reallocated.
+* @param cno_size_type capacity [in] The new capacity of the reallocated memory.
+* @pre CNO_HAVE_STDLIB
+* @return cno_u8_type
+* @retval 0 Success.
+* @retval 1 Not supported.
+* @retval >1 Failure.
+*/
+cno_u8_type CNO_Memory_Reallocate( void *pointer, cno_size_type capacity){
+	cno_u8_type _return = 0;
+	/* Variables */
+#if CNO_HAVE_STDLIB
+	void *realloc_return = NULL;
+	if( capacity > 0 ){
+		if( pointer != NULL ){
+			realloc_return = realloc(pointer, capacity);
+			if( realloc_return != NULL ){
+				pointer = realloc_return;
+			} else{
+				free(pointer);
+				free(realloc_return);
+				_return += 8;
+			}
+		} else{
+			_return += 4;
+		}
+	} else{
+		_return += 2;
+	}		
+#else
+	_return += 1;
+#endif /* CNO_HAVE_STDLIB */
+	/* Return */
+	return _return;
+}
+
+/**
+* @fn CNO_Memory_Free
+* @brief Free (deallocate) a, previously-allocated, memory block and set the pointer to NULL.
+* @param void *pointer [out] Pointer to the memory block to be freed.
+* @pre CNO_HAVE_STDLIB
+* @return cno_u8_type
+* @retval 0 Success.
+* @retval 1 Not supported.
+* @retval >1 Failure.
+*/
+cno_u8_type CNO_Memory_Free( void *pointer){
+	cno_u8_type _return = 0;
+	/* Variables */
+
+#if CNO_HAVE_STDLIB
+	if( pointer != NULL ){
+		free(pointer);
+	} else{
+		_return += 2;
+	}
+#else
+	_return += 1;
+#endif /* CNO_HAVE_STDLIB */
 	/* Return */
 	return _return;
 }
