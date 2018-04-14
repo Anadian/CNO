@@ -53,7 +53,21 @@ typedef struct CNO_Build_Info_struct{
 /*
 Three states: gameplay, cutscene, menu
 Cutscenes must have letterboxing.
-Loading screens must have a subtle progress bar (light glow from the bottom of the screen perhaps) and show a tip, status, and location/time.
+Loading, screens must have a subtle progress bar (light glow from the bottom of the screen perhaps) and show a tip, status, and location/time.
+
+Progress bar verbs:
+Loading,
+Saving,
+Downloading,
+Uploading,
+Moving,
+Copying,
+Deleting
+
+Progress bar format:
+[Left-aligned] <VERB> <EntityA> [to <EntityB>]
+[Centred] <Bar>
+[Right-aligned] <LoadedBytes> / <TotalBytes> | <BytesPerSecond>
 
 HUD placement:
 status:
