@@ -43,6 +43,30 @@ ifeq ($(VERBOSE),1)
 $(info GIT_COMMIT:$(GIT_COMMIT))
 endif #($(VERBOSE),1)
 
+#Phases
+##Pre-build
+mkvar(PHASE_PREPARE,1)
+mkvar(PHASE_GIT_PULL,1)
+mkvar(PHASE_COPY,1)
+mkvar(PHASE_LINT,0)
+mkvar(PHASE_DIRECTORIES,1)
+##Build
+mkvar(PHASE_BUILD,1)
+mkvar(PHASE_COMPILE,1)
+mkvar(PHASE_LINK,1)
+##Test
+mkvar(PHASE_TEST,1)
+mkvar(PHASE_RUN,1)
+##Post-Build
+mkvar(PHASE_PACKAGE,1)
+mkvar(PHASE_INSTALL,0)
+mkvar(PHASE_RELEASE,0)
+mkvar(PHASE_DISTRIBUTE,0)
+mkvar(PHASE_GIT_PUSH,0)
+##Cleanup
+mkvar(PHASE_CLEANUP,1)
+mkvar(PHASE_UNINSTALL,0)
+
 
 #System Information
 #mkvar(PROCESSOR,$(shell uname -p))
