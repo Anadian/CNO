@@ -45,27 +45,146 @@ endif #($(VERBOSE),1)
 
 #Phases
 ##Pre-build
-mkvar(PHASE_PREPARE,1)
-mkvar(PHASE_GIT_PULL,1)
-mkvar(PHASE_COPY,1)
-mkvar(PHASE_LINT,0)
-mkvar(PHASE_DIRECTORIES,1)
+#mkvar(PHASE_PREPARE,1)
+ifeq ($(origin PHASE_PREPARE),undefined)
+PHASE_PREPARE=1
+endif #($(origin PHASE_PREPARE),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_PREPARE:$(PHASE_PREPARE))
+endif #($(VERBOSE),1)
+
+#mkvar(PHASE_GIT_PULL,1)
+ifeq ($(origin PHASE_GIT_PULL),undefined)
+PHASE_GIT_PULL=1
+endif #($(origin PHASE_GIT_PULL),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_GIT_PULL:$(PHASE_GIT_PULL))
+endif #($(VERBOSE),1)
+
+#mkvar(PHASE_COPY,1)
+ifeq ($(origin PHASE_COPY),undefined)
+PHASE_COPY=1
+endif #($(origin PHASE_COPY),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_COPY:$(PHASE_COPY))
+endif #($(VERBOSE),1)
+
+#mkvar(PHASE_LINT,0)
+ifeq ($(origin PHASE_LINT),undefined)
+PHASE_LINT=0
+endif #($(origin PHASE_LINT),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_LINT:$(PHASE_LINT))
+endif #($(VERBOSE),1)
+
+#mkvar(PHASE_DIRECTORIES,1)
+ifeq ($(origin PHASE_DIRECTORIES),undefined)
+PHASE_DIRECTORIES=1
+endif #($(origin PHASE_DIRECTORIES),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_DIRECTORIES:$(PHASE_DIRECTORIES))
+endif #($(VERBOSE),1)
+
 ##Build
-mkvar(PHASE_BUILD,1)
-mkvar(PHASE_COMPILE,1)
-mkvar(PHASE_LINK,1)
+#mkvar(PHASE_BUILD,1)
+ifeq ($(origin PHASE_BUILD),undefined)
+PHASE_BUILD=1
+endif #($(origin PHASE_BUILD),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_BUILD:$(PHASE_BUILD))
+endif #($(VERBOSE),1)
+
+#mkvar(PHASE_COMPILE,1)
+ifeq ($(origin PHASE_COMPILE),undefined)
+PHASE_COMPILE=1
+endif #($(origin PHASE_COMPILE),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_COMPILE:$(PHASE_COMPILE))
+endif #($(VERBOSE),1)
+
+#mkvar(PHASE_LINK,1)
+ifeq ($(origin PHASE_LINK),undefined)
+PHASE_LINK=1
+endif #($(origin PHASE_LINK),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_LINK:$(PHASE_LINK))
+endif #($(VERBOSE),1)
+
 ##Test
-mkvar(PHASE_TEST,1)
-mkvar(PHASE_RUN,1)
+#mkvar(PHASE_TEST,1)
+ifeq ($(origin PHASE_TEST),undefined)
+PHASE_TEST=1
+endif #($(origin PHASE_TEST),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_TEST:$(PHASE_TEST))
+endif #($(VERBOSE),1)
+
+#mkvar(PHASE_RUN,1)
+ifeq ($(origin PHASE_RUN),undefined)
+PHASE_RUN=1
+endif #($(origin PHASE_RUN),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_RUN:$(PHASE_RUN))
+endif #($(VERBOSE),1)
+
 ##Post-Build
-mkvar(PHASE_PACKAGE,1)
-mkvar(PHASE_INSTALL,0)
-mkvar(PHASE_RELEASE,0)
-mkvar(PHASE_DISTRIBUTE,0)
-mkvar(PHASE_GIT_PUSH,0)
+#mkvar(PHASE_PACKAGE,1)
+ifeq ($(origin PHASE_PACKAGE),undefined)
+PHASE_PACKAGE=1
+endif #($(origin PHASE_PACKAGE),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_PACKAGE:$(PHASE_PACKAGE))
+endif #($(VERBOSE),1)
+
+#mkvar(PHASE_INSTALL,0)
+ifeq ($(origin PHASE_INSTALL),undefined)
+PHASE_INSTALL=0
+endif #($(origin PHASE_INSTALL),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_INSTALL:$(PHASE_INSTALL))
+endif #($(VERBOSE),1)
+
+#mkvar(PHASE_RELEASE,0)
+ifeq ($(origin PHASE_RELEASE),undefined)
+PHASE_RELEASE=0
+endif #($(origin PHASE_RELEASE),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_RELEASE:$(PHASE_RELEASE))
+endif #($(VERBOSE),1)
+
+#mkvar(PHASE_DISTRIBUTE,0)
+ifeq ($(origin PHASE_DISTRIBUTE),undefined)
+PHASE_DISTRIBUTE=0
+endif #($(origin PHASE_DISTRIBUTE),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_DISTRIBUTE:$(PHASE_DISTRIBUTE))
+endif #($(VERBOSE),1)
+
+#mkvar(PHASE_GIT_PUSH,0)
+ifeq ($(origin PHASE_GIT_PUSH),undefined)
+PHASE_GIT_PUSH=0
+endif #($(origin PHASE_GIT_PUSH),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_GIT_PUSH:$(PHASE_GIT_PUSH))
+endif #($(VERBOSE),1)
+
 ##Cleanup
-mkvar(PHASE_CLEANUP,1)
-mkvar(PHASE_UNINSTALL,0)
+#mkvar(PHASE_CLEANUP,1)
+ifeq ($(origin PHASE_CLEANUP),undefined)
+PHASE_CLEANUP=1
+endif #($(origin PHASE_CLEANUP),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_CLEANUP:$(PHASE_CLEANUP))
+endif #($(VERBOSE),1)
+
+#mkvar(PHASE_UNINSTALL,0)
+ifeq ($(origin PHASE_UNINSTALL),undefined)
+PHASE_UNINSTALL=0
+endif #($(origin PHASE_UNINSTALL),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_UNINSTALL:$(PHASE_UNINSTALL))
+endif #($(VERBOSE),1)
+
 
 
 #System Information
