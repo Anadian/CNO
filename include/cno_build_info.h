@@ -426,15 +426,18 @@ Quality:
 	Blood off/mild/maximum
 	Gameplay/Cutscene Model/Texture quality for Player/Actor/Object/Environment/Shrubbery Very-Low/Low/Medium/High/Very-High
 	Texture Effects duration short/medium/forever
+	Dynamic Shadows off/partial/full
 	Shadow Quality
-	Lighting Quality
-	Reflection off/Quality
+	Dynamic Lighting Effects off/partial/full
+	Dynamic Debris low/medium/high
+	Reflections off/mimimal/maximumy
+	Reflection Quality
 	Transparency Quality
 	Post Effects //bloom, colour adjustments
 	Despawn fade delay short/long/forever
 	Particle effects low/med/high
 	Draw Distance radius small/medium/large/infinite
-	Draw-Distance quality-drop-off scale none/linear/exponential
+	(LOD bias) Draw-Distance quality-drop-off scale none/linear/exponential
 	Texture scaling none/linear/bilinear/...
 	Sprite flashes for spawn/damage/stat-effect off/monochromatic/transparency/coloured
 Content
