@@ -430,7 +430,7 @@ Quality:
 	Shadow Quality
 	Dynamic Lighting Effects off/partial/full
 	Dynamic Debris low/medium/high
-	Reflections off/mimimal/maximumy
+	Reflections off/mimimal/maximum
 	Reflection Quality
 	Transparency Quality
 	Post Effects //bloom, colour adjustments
