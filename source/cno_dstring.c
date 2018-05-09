@@ -20,9 +20,8 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-CSI(C\H\STDLIB,<stdlib.h>)
-
 #include "cno_string.h"
+#include "cno_memory.h"
 
 /**
 * @fn C\DString_Calloc
@@ -63,12 +62,15 @@ c\u8\ty C\DString_Calloc(C\DString\ty *dstring, c\size\ty size){
 #endif /* C\H\STDLIB */
 	return _return;
 }
-c\u8\ty C\DString_Realloc(C\DString\ty *dstring, c\size\ty size
 
 c\u8\ty C\DString_Create(C\DString\ty *dstring, c\size\ty capacity){
 	c\u8\ty _return = 0;
+	/* Variables */
+	void *calloc_pointer = NULL;
+	c\u8\ty CNO_Memory_Allocate_return = 1;
+	/* Arguments */
 	if((*dstring).capacity > 0 && (*dstring).array != NULL){
-		_return++;
+		_return += 2;
 	}
 	(*dstring).length = 0;
 	if(capacity == NULL){
@@ -76,10 +78,21 @@ c\u8\ty C\DString_Create(C\DString\ty *dstring, c\size\ty capacity){
 	} else{
 		(*dstring).capacity = capacity;
 	}
-	(*dstring).array = calloc((*dstring).capacity, sizeof(unsigned char));
-	if((*dstring).array == NULL){
-		_return++;
+	/* Function */
+	CNO_Memory_Allocate_return = CNO_Memory_Allocate( calloc_pointer, sizeof(c\u8\ty), (*dstring).capacity );
+	if( CNO_Memory_Allocate_return == 0 ){
+		if( calloc_pointer != NULL ){
+			(*dstring).array = calloc_pointer;
+		} else{
+			_return += 8;
+		}
+	} else{
+		_return += CNO_Memory_Allocate_return;
 	}
+	if((*dstring).array == NULL){
+		_return += 4;
+	}
+	/* Return */
 	return _return;
 }
 
