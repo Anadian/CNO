@@ -75,21 +75,21 @@ cno_u8_type CNO_Memory_Allocate(void *output_pointer, cno_size_type size, cno_si
 * @fn CNO_Memory_Reallocate
 * @brief Reallocate a, previously-allocated, dynamic-memory block to a new size.
 * @param void *pointer [out] The pointer to the memory block to be reallocated.
-* @param cno_size_type capacity [in] The new capacity of the reallocated memory.
+* @param cno_size_type size [in] The new size of the reallocated memory.
 * @pre CNO_HAVE_STDLIB
 * @return cno_u8_type
 * @retval 0 Success.
 * @retval 1 Not supported.
 * @retval >1 Failure.
 */
-cno_u8_type CNO_Memory_Reallocate( void *pointer, cno_size_type capacity){
+cno_u8_type CNO_Memory_Reallocate( void *pointer, cno_size_type size){
 	cno_u8_type _return = 0;
 	/* Variables */
 #if CNO_HAVE_STDLIB
 	void *realloc_return = NULL;
-	if( capacity > 0 ){
+	if( size > 0 ){
 		if( pointer != NULL ){
-			realloc_return = realloc(pointer, capacity);
+			realloc_return = realloc(pointer, size);
 			if( realloc_return != NULL ){
 				pointer = realloc_return;
 			} else{

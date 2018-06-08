@@ -23,6 +23,7 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #include "cno_string.h"
 #include "cno_memory.h"
 
+#if 0
 /**
 * @fn C\DString_Calloc
 * @brief Allocates and zeros a new DString.
@@ -62,6 +63,7 @@ c\u8\ty C\DString_Calloc(C\DString\ty *dstring, c\size\ty size){
 #endif /* C\H\STDLIB */
 	return _return;
 }
+#endif 
 
 c\u8\ty C\DString_Create(C\DString\ty *dstring, c\size\ty capacity){
 	c\u8\ty _return = 0;
@@ -112,43 +114,50 @@ C\DString\ty *C\DString_Create_Raw(c\size\ty capacity){
 
 c\u8\ty C\DString_CreateFromCString( C\DString\ty *dstring, c\string\ty *string ){
 	c\u8\ty _return = 0;
+	/* Variables */
 	c\size\ty string_length = 0;
-	void *new_pointer = NULL;
+	c\u8\ty CNO_Memory_Reallocate_return = 1;
 
+	/* Arguments */
 	c\u8\ty condition1 = (dstring != NULL);
 	c\u8\ty condition2 = (string != NULL);
-	
 	if( condition1 && condition2 ){ /* arguments valid */
+	/* Function */
 		condition1 = ((*dstring).capacity == 0);
 		condition2 = ((*dstring).array == NULL);
 		if( condition1 && condition2 ){ /* dstring blank */
-			string_length = utf8size( (void*)string );
+			CNO_String_Length( &string_length, (void*)string );
 			(*dstring).capacity = string_length;
 			(*dstring).array = utf8dup( (void*)string );
 			(*dstring).length = utf8len( (void*)((*dstring).array) );
 		} else{
-			string_length = utf8( (void*)string );
+			CNO_String_Length( &string_length, (void*)string );
 			(*dstring).capacity = string_length;
-			new_pointer = realloc( (*dstring).array, ((*dstring).capacity * sizeof(c\u8\ty)) );
-			(*dstring)
-			if( new_pointer != NULL ){
-				
-				
-			
+			CNO_Memory_Reallocate_return = C\Memory_Reallocate( (*dstring).array, ((*dstring).capacity * sizeof(c\u8\ty)) );
+			if( C\Memory_Reallocate_return == 0 ){
+				(*dstring).length = utf8len( (void*)((*dstring).array) );
+			} else{
+				_return += (C\Memory_Rellocate_return + 5);
+			}
+		}	
 	} else{
 		_return += 1;
 	}
-
+	/* Return */
+	return _return;
+}
 
 c\u8\ty C\DString_Copy(C\DString\ty *target_dstring, C\DString\ty *source_dstring){
 	c\u8\ty _return = 0;
+	/* Variables */
 	c\u8\ty condition1 = 0;
 	c\u8\ty condition2 = 0;
 	void *new_pointer = NULL;
 
 	condition1 = (target_dstring != NULL);
 	condition2 = (source_dstring != NULL);
-	if( condition1 && condition2 ){
+	if( condition1 && condition2 ){ /* arguments valid */
+	/* Function */
 		condition1 = ((*source_dstring).capacity > 0);
 		condition2 = ((*source_dstring).array != NULL);
 		if( condition1 && condition2 ){
@@ -182,20 +191,29 @@ c\u8\ty C\DString_Copy(C\DString\ty *target_dstring, C\DString\ty *source_dstrin
 	} else{
 		_return += 1;
 	}
-
+	/* Return */
 	return _return;
 }
 
 c\u8\ty C\DString_Destroy(C\DString\ty *dstring){
 	c\u8\ty _return = 0;
-	if( ((*dstring).capacity > 0) && ((*dstring).array != NULL) ){
+	/* Variables */
+	c\u8\ty CNO_Memory_Free_return = 1;
+	/* Arguments */
+	if( ((*dstring).capacity > 0) && ((*dstring).array != NULL) ){ /* arguments valid */
+	/* Function */
 		(*dstring).length = 0;
 		(*dstring).capacity = 0;
-		free((*dstring).array);
-		(*dstring).array = NULL;
+		c\u8\ty C\Memory_Free_return = CNO_Memory_Free((*dstring).array);
+		if( C\Memory_Free_return == 0){
+			(*dstring).array = NULL;
+		} else{
+			_return += (C\Memory_Free_return + 5);
+		}
 	} else{
 		_return += 1;
 	}
+	/* Return */
 	return _return;
 }
 

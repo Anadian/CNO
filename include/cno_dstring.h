@@ -28,6 +28,7 @@ extern "C"{
 #endif /* defined(__cplusplus) */
 
 #include "cno_build.h"
+#include "cno_string.h"
 
 typedef struct CNO_DString\s{
 	c\size\ty length;
