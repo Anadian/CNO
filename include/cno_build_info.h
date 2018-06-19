@@ -358,6 +358,9 @@ Dpad (Weapons(Up/Down)/Inventory(Left/Right)/Stance/(hold) menus)
 Status		Notes										Normal		ContextualAction
 	Map															Jump
 				L3: Run						R3: ChangeCamera (Scope/Scanner)
+Gently/gradual pressing LT: ADS without snap (ranged weapon), strafe without lockon targeting (melee)
+Gently/gradually pressing RT: Hairtrigger ala Sniper Challeng (ranged weapon), Dyanamic stamina consumption for heavier, more-specialised attacks (melee)
+
 Menu Controls:
 LT: Scroll Modifier		RT: Sort/Filter/View
 LB: Pane Left			RB: Pane Right
@@ -447,6 +450,7 @@ System:
 autosave 
 Save screenshot with each save game.
 softpause on focus lost
+mouselock
 Loading-and-freeing/memory usage, preload-everything, preload everything and free as needed, load as needed but don't free until quit, high/medium/low memory usage
 Decompress game data
 Mods
