@@ -351,15 +351,15 @@ ADS (aim-down-site): x/y-invert, sensitivity, speed, snap
 //view point
 //rot point
 Gameplay Controls:
-LT: Aim(FPS)/Target(TPS)/Strafe-GunLock(2D ranged weapon)/Block(2D melee weapon)	RT: Shoot(Ranged weapon)/Block(Melees weapon)/Stationary-PositionLock(2D ranged weapon)/Block(2D Melee weapon)(or item?)
-LB: Low Profile Mod (Sneak/Crouch)	RB: High Profile Mod (Force/Command)/Scanner-Binoculars/AuxilaryAction
+LT: Aim(FPS)/Target(TPS)/Strafe-GunLock(2D ranged weapon)/Block(2D melee weapon)/Brake/Descend	RT: Shoot(Ranged weapon)/Block(Melees weapon)/Stationary-PositionLock(2D ranged weapon)/Block(2D Melee weapon)(or item?)/Accelerate/Ascend
+LB: Low Profile Mod (Sneak/Crouch)/Descend	RB: High Profile Mod (Force/Command)/Scanner-Binoculars/AuxilaryAction
 Dpad (Weapons(Up/Down)/Inventory(Left/Right)/Stance/(hold) menus)
-	Inventory		Select: GameMenu	Start: SystemMenu		Special
-Status		Notes										Normal		ContextualAction
-	Map															Jump
-				L3: Run						R3: ChangeCamera (Scope/Scanner)
+													Inventory		Select: GameMenu/Quick Map	Start: SystemMenu/(hold) Quick Restart		Special
+												Status		Notes																		Normal		ContextualAction
+														Map																						Jump
+				L3: Run/(Third Person LT+)Change Shoulder/(First Person LT+) Lean/(hold neutral) Fast Forward					R3: Scanner/(LT+)Scope/(hold) Altered Vision
 Gently/gradual pressing LT: ADS without snap (ranged weapon), strafe without lockon targeting (melee)
-Gently/gradually pressing RT: Hairtrigger ala Sniper Challeng (ranged weapon), Dyanamic stamina consumption for heavier, more-specialised attacks (melee)
+Gently/gradually pressing RT: Hairtrigger ala Sniper Challenge (ranged weapon), Dyanamic stamina consumption for heavier, more-specialised attacks (melee)
 
 Menu Controls:
 LT: Scroll Modifier		RT: Sort/Filter/View
@@ -487,6 +487,7 @@ u8 wetness
 u8 refraction
 u8 friction
 u8 conductivity
+u8 flamable
 
 Materials:
 Dirt,
