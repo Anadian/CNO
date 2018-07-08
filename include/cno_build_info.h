@@ -129,6 +129,8 @@ lava red/pink
 buildings brown/grey
 Player character is an arrow with transulent arrows indicating previous locations.
 
+Mission: Independent, replayable, scored, resolve to either success or failure
+Quest: Ambient, over-arching, stackable
 Objectives symbols:
 Notes screen [flowchart]
 Diamond [horizontal line]: Required objective.
@@ -352,7 +354,7 @@ ADS (aim-down-site): x/y-invert, sensitivity, speed, snap
 //rot point
 Gameplay Controls:
 LT: Aim(FPS)/Target(TPS)/Strafe-GunLock(2D ranged weapon)/Block(2D melee weapon)/Brake/Descend	RT: Shoot(Ranged weapon)/Block(Melees weapon)/Stationary-PositionLock(2D ranged weapon)/Block(2D Melee weapon)(or item?)/Accelerate/Ascend
-LB: Low Profile Mod (Sneak/Crouch)/Descend	RB: High Profile Mod (Force/Command)/Scanner-Binoculars/AuxilaryAction
+LB: Low Profile Mod (Sneak/Crouch)	RB: High Profile Mod (Force/Command)/Scanner-Binoculars/AuxilaryAction
 Dpad (Weapons(Up/Down)/Inventory(Left/Right)/Stance/(hold) menus)
 													Inventory		Select: GameMenu/Quick Map	Start: SystemMenu/(hold) Quick Restart		Special
 												Status		Notes																		Normal		ContextualAction
