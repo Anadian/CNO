@@ -363,6 +363,21 @@ Dpad (Weapons(Up/Down)/Inventory(Left/Right)/Stance/(hold) menus)
 Gently/gradual pressing LT: ADS without snap (ranged weapon), strafe without lockon targeting (melee)
 Gently/gradually pressing RT: Hairtrigger ala Sniper Challenge (ranged weapon), Dyanamic stamina consumption for heavier, more-specialised attacks (melee)
 
+Dpad_Left: Change between melee and ranged
+Dpad_Left~: Holster/Weapon Sub Menu
+Jump+Jump: Glide
+Glide+Aim: Bullet Time
+Crouch+Movement+Jump: Dive
+Dive+Aim: Bullet Time
+Crouch+Sprint: Crouch Toggle
+Aim+Scanner: Zoom
+Aim(Third person)+Sprint: Change shoulder
+Aim(First person)+Sprint: Lean
+Aim+Action~: Bullet Time
+Aim+Special: Reload
+Aim+Special~: Change Ammo
+
+
 Menu Controls:
 LT: Scroll Modifier		RT: Sort/Filter/View
 LB: Pane Left			RB: Pane Right
