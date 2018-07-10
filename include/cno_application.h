@@ -47,7 +47,7 @@ typedef struct CNO_Application_struct{
 	cno_u8_type process_name[64];
 	CNO_Build_Info_type build_info;
 	CNO_Evironment_type evironment;
-	CNO_Settings_type settings;
+	CNO_Settings_type settingss;
 	cno_filestream_type stdout;
 	cno_filestream_type stderr;
 	c\u8\ty middleware_initialized;
