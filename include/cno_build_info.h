@@ -473,6 +473,7 @@ Decompress game data
 Mods
 
 A single universal store system, with shooping cart, capable of buying/selling items, buying unlockables, and DLC.
+Outpost, fast travel points,  for starting missions, managing quest, picking up supplies, adjusting loadout.
 
 elements:
 water //slow / douse
