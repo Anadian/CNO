@@ -317,6 +317,9 @@ format
 ui-text (lang)
 font-size
 format
+include character names for dialogue
+inlcude full closed captioning
+visualise sound direction
 
 Input:
 source toggles
