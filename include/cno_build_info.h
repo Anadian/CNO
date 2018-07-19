@@ -359,15 +359,19 @@ Gameplay Controls:
 LT: Aim(FPS)/Target(TPS)/Strafe-GunLock(2D ranged weapon)/Block(2D melee weapon)/Brake/Descend	RT: Shoot(Ranged weapon)/Block(Melees weapon)/Stationary-PositionLock(2D ranged weapon)/Block(2D Melee weapon)(or item?)/Accelerate/Ascend
 LB: Low Profile Mod (Sneak/Crouch)	RB: High Profile Mod (Force/Command)/Scanner-Binoculars/AuxilaryAction
 Dpad (Weapons(Up/Down)/Inventory(Left/Right)/Stance/(hold) menus)
-													Inventory		Select: GameMenu/Quick Map	Start: SystemMenu/(hold) Quick Restart		Special
-												Status		Notes																		Normal		ContextualAction
-														Map																						Jump
+													 ZoomIn			Select: GameMenu/Quick Map	Start: SystemMenu/(hold) Quick Restart		Special
+												Weapons		MediaPlayer																	Normal		ContextualAction
+													 ZoomOut																					Jump
 				L3: Run/(Third Person LT+)Change Shoulder/(First Person LT+) Lean/(hold neutral) Fast Forward					R3: Scanner/(LT+)Scope/(hold) Altered Vision
 Gently/gradual pressing LT: ADS without snap (ranged weapon), strafe without lockon targeting (melee)
 Gently/gradually pressing RT: Hairtrigger ala Sniper Challenge (ranged weapon), Dyanamic stamina consumption for heavier, more-specialised attacks (melee)
 
 Dpad_Left: Change between melee and ranged
 Dpad_Left~: Holster/Weapon Sub Menu
+Dpad_Right: Pause playing media
+Dpad_Right~: MediaPlayer submenu
+Dpad_Up: Zoom in
+Dpad_Down: Zoom out
 Jump+Jump: Glide
 Glide+Aim: Bullet Time
 Crouch+Movement+Jump: Dive
@@ -380,6 +384,15 @@ Aim+Action~: Bullet Time
 Aim+Special: Reload
 Aim+Special~: Change Ammo
 
+MediaPlayer submenu controls
+A: Pause/Unpause
+B: Stop
+X: Repeat
+Y: Shuffle
+R1: Playlist Select (with R-stick)
+R2: Fast-Foward
+L2: Rewind
+L1: Reset
 
 Menu Controls:
 LT: Scroll Modifier		RT: Sort/Filter/View
