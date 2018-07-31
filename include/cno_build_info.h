@@ -86,6 +86,7 @@ scaleable radius
 fade for HUD: auto, toggle, off
 HUD: all always on, essentials on and fade rest, all fade, toggle, off
 fade speed for elemant: fast, medium, slow.
+Status Bar: build info, version,  total frames in hexadecimal, frames per second, network, battery, realtime clock
 Status (TL), game time/location/direction/weather (TC), Navigation/Alert (TR) connectivity and wall time
 Mission info (tutorial hints),  (beacon), timers/splits 
 count, reticle (multi-colour/monochrome/invisible), weapon info/equipment mapping 
@@ -383,6 +384,8 @@ Aim(First person)+Sprint: Lean
 Aim+Action~: Bullet Time
 Aim+Special: Reload
 Aim+Special~: Change Ammo
+ContextAction: Pickup
+ContextAction~: Quick Consume
 
 MediaPlayer submenu controls
 A: Pause/Unpause
