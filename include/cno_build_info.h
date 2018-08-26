@@ -807,6 +807,104 @@ enemy, element1 element2, HP, class, EXP, gold
 
 Damage varies depending on state and location; enemies are most vulnerable while preparing an attack.
 
+Combat classes:
+An army is comprised of 23-25 units of class:
+Standard (7): all-arounder
+Infiltrators (5): Small, fast, stealthy, low HP, ideal for capturing command post
+Heavies (3): Slow, powerful, cannot operate vechiles, lots of HP, good for leading frontal assaults
+Technician (3): Can repare machines and vechiles, set up traps (out of standard grenades) and one-way shields, if in the capture-zone while an enemy CP is caputred, will automatically repair the machines in the area
+Sniper (2): Slow, good weapons, peerless accuracy, low HP, can be given information from "spotters"
+Medic (1): Infinite medical supplies, very little offensive ability
+
+Unconscious or fatally-wounded can be healed, executed, or detained.
+Soldiers detained long enough will become captured or recruited (if heroicism is high enough)
+
+Heroicism/Villianism:
+
+Heroic acts:
+healing allies/fatally-wounded enemies/neutral,
+neutralising soldiers non-lethally,
+repairing things,
+sharing ammo,
+disarming traps,
+marking targets,
+
+Hero perks:
+Allies are more likely to heal you and share ammo with you;
+Allies are motivated for longer when healed;
+Captured enemies can be recruited to be allies;
+Dying cause and area-of-effect Motivated-state for all nearby allies;
+Stronger effect when capturing a neutral CP;
+Score multiplier;
+
+Hero detriments:
+Notoriety, more information on you from a greater distance;
+Halved effect of heroic acts;
+Punished more harshly for villainous acts;
+
+Neutral acts:
+looting corpses;
+
+Neutral perks:
+Subtlety
+
+Villainous acts:
+Executing fatally-wounded and unconscious;
+Friendly Fire, attacking allies;
+Collateral Damage, harming neutrals and causing mass destruction;
+Using fatally-wounded and unconscious as bait;
+Using the deceased, unconscious, or neutrals as body shields;
+Attacking medics;
+Stealing ammo;
+
+Villainous perks:
+Devasting melee executions;
+Stronger weapons;
+Double the effect of heroic acts;
+Halved effect of villainous acts;
+Stronger effect when depleting the enemies' "grasp" of a CP;
+
+Villainous detriments:
+Ominous presence, detected and recognised from much farther away;
+Allies are less likely to heal you, share ammo, or repair your vehicle;
+Score reduction;
+
+Status effects:
+Refurbished, occurs when a machine/vehicle as been repaired from less than half HP to full HP, temporarily making the machine/vehicle twice as effective for allies of the technician that repaired.
+Motivated, occurs when healing an ally with <50% HP to 100% HP, temporarily making them move and reload faster, and deal increased damage.
+Unconscious, occurs when an actor is depleted of EP or asleep, regenerates health, takes double damage, and can be easily detained/executed.
+Fatally-wounded, occurs when an actor's HP is less than 5%, cannot move or shoot, health slowly depletes, can be detained, executed, or healed.
+Detained, occurs when an unconscious or fatally-wounded actors as been detained (cuffed), cannot do anything but be freed and healed by others, actor will become captured by the team that detained if not freed.
+Burning, occurs when an actor is on fire, health quickly depletes until the fire is doused, patted out, or the actor is dead.
+Poison, if not cured with an antidote with a set period of time, the actor will die immediately.
+Suspicious, can be suspicious of non-player events (such as explosions and strange sounds).
+Alerted,
+Scared, occurs when soldiers are overwhelmed, more defensive, evasive, and generally less risky.
+Invinciable: no damage can be taken.
+
+Explosives:
+Frag Grenade, high damage, high knockback, very loud; can be used to created, sticky, contact, proximity mines, claymore directional mines, and C4 remote mines.
+Flame Grenade, inflicts burning, relatively quiet, proximity and remote variance.
+Shock Grenade, no damage or knockback all stun, kind of loud, sticky, proximity, remote variance
+
+Exposed plasma + water = combustion and self-destruction
+Destroying enemy ships replenishes fuel.
+
+Gear:
+Regenerating Full-body Shield;
+Regenerating Stealth Cloak;
+Jetpack;
+Directional Inifinite Shield;
+
+Weapons:
+Pistol: quiet, chargable, common; ammo: regular, tranquiliser, napalm
+Assault Rifle: fast, loud, basic; ammo: regular, rubber.
+Shotgun: wide cone, very inaccurate, good stopping power, really loud; reregular, combustion
+Sniper Rifle: Peerless accuracy, penetration, damage, slow rate of fire, loud.
+RPG Launcher: Very loud, very slow, massive destructive ability, peerless stopping power.
+Crossbow: silent, slowish rate of fire, high damage, weak penetration.
+
+
 Difficulty:
 Easy (0.5): Recommended for novice players or content tourist. Base attack is doubled and defence is quadrupled. Strong regen is available early in the game. Miracles, criticals, item drops all in effect. Resource management is trivial.
 Normal (1): Recommended for modern players. Criticals and item drops are in effect. Modest regen is available about halfway through the game. Resource management is recommend but not strictly necessary.
