@@ -925,6 +925,8 @@ Enemy/Boss
 	Level Multiplier
 Shuffle (enemies, rooms, bosses, abilities, items)
 
+Dynamic Log categories:
+PlayerChat,NPCText,WorldEvents,SystemLogging
 
 Save game must show in-game time, real-world save time, and preferably screenshot.
 Three auto save slots (action/room/stage), two quick save slots, at least five hard save slots, one temporary suspension save slot. per profile
@@ -936,6 +938,57 @@ Completion time (single loop),
 High score (single loop),
 High score (multi loop),
 Stages cleared (multi loop)
+
+Versus Multiplayer Mode Descriptors:
+[1-4]xArmies | [1-4] Teams of four | [1-100] Fighters
+
+Rule Set creator:
+Exceed [X-Limit Below]-Limit response: Remove Player, End Game
+Time Limit: 0 seconds to one hour;
+Score Limit: 0 to infinity
+Respawn Limit: 0 to 999
+Kill Limit: 0 to 999
+Captured-Flag Limit: 0 to 999
+Command-Post Limit: 0 to 999
+Winner Priority List
+Loser Priority List
+Match Sets: 1/1, 2/3, 3/5, 4/7, 5/9, 7/13, ... 50/99
+Score Multipliers (Important)
+Spawn Options: Boolean
+
+Weapon Set:
+Character-Spawn Optional limit: 0 for not available at character-spawn; X for limited ammounts; -1 for inifinite
+Shared character-spawn-optional limit:Boolean
+In-Level Spawn: Diasable; Consistent, competitive; random, party.
+Mods and variability:
+Min-Modifier: 
+Max-Modifier:
+
+Item Set: 
+Character-Spawn Optional limit: Same as above
+Shared limit
+In-Level Spawn
+Mods and variability
+
+Vehicle Set:
+Character-Spawn Optional PER-VEHICLE limit:
+Shared limit
+In-Level Spawn
+Mods and variability
+
+Character Set:
+Character-Spawn Optional limit: Same as above
+Shared limit
+In-Level Spawn
+Mods and variability
+Location Set: 
+
+SportBall:
+LT: Aim RT: Shoot
+LB: Defence RB: Lobb Pass
+	X: Invest Dilation
+y: Devest Dilation  A: Action 
+	B: Jump
 
 Characters (style);
 Kirby (normal)
