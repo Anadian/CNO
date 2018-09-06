@@ -890,6 +890,14 @@ Shock Grenade, no damage or knockback all stun, kind of loud, sticky, proximity,
 Exposed plasma + water = combustion and self-destruction
 Destroying enemy ships replenishes fuel.
 
+Inventory quick-select sub-menu; starts on weapon
+Attachments
+Ammo
+Weapon
+Gear
+Consumables
+Equipment
+
 Gear:
 Regenerating Full-body Shield;
 Regenerating Stealth Cloak;
