@@ -459,8 +459,26 @@ Account
 Encrypt save data
 
 Graphics:
+All assest have set priority parametres
+instantances have each have a priority: [trivial|luxurious|recommended|important|essential]
 Gamma correction
-Effects
+Effects:
+	Density
+	Complexity: [off/static|animated|simulated]
+	Longevity
+Water:
+	Complexity
+	World Reflections: [off|simple|dynamic]
+	Object Reflections: [off|simple|dynamic]
+	Reflection Resolution: VL/L/M/H/VH
+	Light Refraction [off|simple|simulated]
+	Coustics [off|animated|simulated]
+	Splash [off|animated|simulated]
+	Rubble Buoyancy: Boolean
+	Bubbles: [off|animated|simulated]
+	Proximity Effect [off|simple|simulated]
+	Magnification [off|animated|simulated]
+	Colour Distortion [off|simple|simulated]
 Quality:
 	Blood off/mild/maximum
 	Gameplay/Cutscene Model/Texture quality for Player/Actor/Object/Environment/Shrubbery Very-Low/Low/Medium/High/Very-High
@@ -475,6 +493,7 @@ Quality:
 	Post Effects //bloom, colour adjustments
 	Despawn fade delay short/long/forever
 	Particle effects low/med/high
+	Rendering-Fog: Boolean
 	Draw Distance radius small/medium/large/infinite
 	(LOD bias) Draw-Distance quality-drop-off scale none/linear/exponential
 	Texture scaling none/linear/bilinear/...
