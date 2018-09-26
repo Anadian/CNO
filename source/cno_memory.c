@@ -24,6 +24,7 @@ OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #if CNO_HAVE_STDLIB
 #include <stdlib.h>
 #endif /* CNO_HAVE_STDLIB */
+CSI(C\H\STRING,<string.h>)
 
 /**
 * @fn CNO_Memory_Allocate
@@ -109,7 +110,52 @@ cno_u8_type CNO_Memory_Reallocate( void *pointer, cno_size_type size){
 	/* Return */
 	return _return;
 }
-
+/**
+* @fn CNO_Memory_Copy
+* @brief Copies one portion of memory to another.
+* @param void *output_buffer [out] A pointer to the memory buffer to copy to.
+* @param void *input_buffer [in] A pointer the memory buffer to copy from.
+* @param c\size\ty bytes [in] The number of bytes to copy.
+* @pre C\H\STDLIB required
+* @pre C\H\STRING required
+* @return cno_u8_type
+* @retval 0 Success.
+* @retval 1 Not supported.
+* @retval 2 Invalid argument.
+* @retval >2 Failure.
+*/
+cno_u8_type CNO_Memory_Copy( void *output_buffer, void *input_buffer, c\size\ty bytes ){
+	cno_u8_type _return = 1;
+	/* Variables */
+	c\u8\ty condition1 = ( output_buffer != NULL );
+	c\u8\ty condition2 = ( input_buffer != NULL );
+	c\u8\ty condition3 = ( bytes > 0 );
+	/* Arguments */
+#if C\H\STDLIB C\H\STRING
+	if ( condition1 && condition2 && condition3 ){
+		/* Function */
+		memcpy( output_buffer, input_buffer, bytes );
+	} else{
+		/* Invalid arguments. */
+		if( !condition1 ){
+			/* Invalid output_buffer. */
+			_return += 1;
+		}
+		if( !condition2 ){
+			/* Invalid input_buffer. */
+			_return += 1;
+		}
+		if( !condition3 ){
+			/* Invalid count. */
+			_return += 1;
+		}
+	}
+#else
+	_return = 1;
+#endif /* C\H\STDLIB C\H\STRING */
+	/* Return */
+	return _return;
+}
 /**
 * @fn CNO_Memory_Free
 * @brief Free (deallocate) a, previously-allocated, memory block and set the pointer to NULL.
