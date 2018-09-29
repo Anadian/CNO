@@ -60,16 +60,16 @@ cno_u8_type CNO_Memory_Reallocate( void *pointer, cno_size_type capacity );
 * @brief Copies one portion of memory to another.
 * @param void *output_buffer [out] A pointer to the memory buffer to copy to.
 * @param void *input_buffer [in] A pointer the memory buffer to copy from.
-* @param c\size\ty bytes [in] The number of bytes to copy.
-* @pre C\H\STDLIB required
-* @pre C\H\STRING required
+* @param cno_size_type bytes [in] The number of bytes to copy.
+* @pre CNO_HAVE_STDLIB required
+* @pre CNO_HAVE_STRING required
 * @return cno_u8_type
 * @retval 0 Success.
 * @retval 1 Not supported.
 * @retval 2 Invalid argument.
 * @retval >2 Failure.
 */
-cno_u8_type CNO_Memory_Copy( void *output_buffer, void *input_buffer, c\size\ty bytes );
+cno_u8_type CNO_Memory_Copy( void *output_buffer, void *input_buffer, cno_size_type bytes );
 /**
 * @fn CNO_Memory_Free
 * @brief Free (deallocate) a, previously-allocated, memory block and set the pointer to NULL.

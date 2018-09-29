@@ -28,8 +28,8 @@ extern "C"{
 #endif /* defined(__cplusplus) */
 
 typedef struct CNO_DynamicBuffer_struct {
-	c\u8\ty *array;
-	c\size\ty capacity;
+	cno_u8_type *array;
+	cno_size_type capacity;
 } CNO_DynamicBuffer_type;
 
 /**
@@ -58,80 +58,92 @@ cno_u8_type CNO_DynamicBuffer_IsGood( CNO_DynamicBuffer_type *dynamic_buffer );
 /**
 * @fn CNO_DynamicBuffer_CountBytes
 * @brief Return the number of bytes currently allocated: the capacity.
-* @param c\size\ty *bytes [out] A pointer to where the capacity will be stored.
+* @param cno_size_type *bytes [out] A pointer to where the capacity will be stored.
 * @param CNO_DynamicBuffer_type *dynamic_buffer [in] A pointer to the DynamicBuffer to be counted.
 * @return cno_u8_type
 * @retval 0 Success.
 * @retval 1 Not supported.
 * @retval >1 Failure.
 */
-cno_u8_type CNO_DynamicBuffer_CountBytes( c\size\ty *bytes, CNO_DynamicBuffer_type *dynamic_buffer );
+cno_u8_type CNO_DynamicBuffer_CountBytes( cno_size_type *bytes, CNO_DynamicBuffer_type *dynamic_buffer );
 /**
 * @fn CNO_DynamicBuffer_GetByte
 * @brief Get the value of the byte in the given DynamicBuffer at the given address.
-* @param c\u8\ty *byte [out] A pointer to where the byte's value will be stored.
+* @param cno_u8_type *byte [out] A pointer to where the byte's value will be stored.
 * @param CNO_DynamicBuffer_type *dynamic_buffer [in] A pointer to the DynamicBuffer.
-* @param c\size\ty address [in] The address of the value to retrieve.
+* @param cno_size_type address [in] The address of the value to retrieve.
 * @return cno_u8_type
 * @retval 0 Success.
 * @retval 1 Not supported.
 * @retval >1 Failure.
 */
-cno_u8_type CNO_DynamicBuffer_GetByte( c\u8\ty *byte, CNO_DynamicBuffer_type *dynamic_buffer, c\size\ty address );
+cno_u8_type CNO_DynamicBuffer_GetByte( cno_u8_type *byte, CNO_DynamicBuffer_type *dynamic_buffer, cno_size_type address );
 /**
 * @fn CNO_DynamicBuffer_SetByte
 * @brief Set the value of the byte in the given DynamicBuffer at the given address.
 * @param CNO_DynamicBuffer_type *dynamic_buffer [out] A pointer to the DynamicBuffer.
-* @param c\size\ty address [in] The address of the byte to be set.
-* @param c\u8\ty value [in] The value to be set.
+* @param cno_size_type address [in] The address of the byte to be set.
+* @param cno_u8_type value [in] The value to be set.
 * @return cno_u8_type
 * @retval 0 Success.
 * @retval 1 Not supported.
 * @retval >1 Failure.
 */
-cno_u8_type CNO_DynamicBuffer_SetByte( CNO_DynamicBuffer_type *dynamic_buffer, c\size\ty address, c\u8\ty value );
+cno_u8_type CNO_DynamicBuffer_SetByte( CNO_DynamicBuffer_type *dynamic_buffer, cno_size_type address, cno_u8_type value );
 /**
 * @fn CNO_DynamicBuffer_CountByte
 * @brief Count how many times the given value occurs in the given DynamicBuffer.
-* @param c\size\ty *count [out] A pointer to where the count will be stored.
+* @param cno_size_type *count [out] A pointer to where the count will be stored.
 * @param CNO_DynamicBuffer_type *dynamic_buffer [in] A pointer to the DynamicBuffer.
-* @param c\u8\ty value [in] The value to be counted.
+* @param cno_u8_type value [in] The value to be counted.
 * @return cno_u8_type
 * @retval 0 Success.
 * @retval 1 Not supported.
 * @retval >1 Failure.
 */
-cno_u8_type CNO_DynamicBuffer_CountByte( c\size\ty *count, CNO_DynamicBuffer_type *dynamic_buffer, c\u8\ty value );
+cno_u8_type CNO_DynamicBuffer_CountByte( cno_size_type *count, CNO_DynamicBuffer_type *dynamic_buffer, cno_u8_type value );
 /**
 * @fn CNO_DynamicBuffer_AddressByte
 * @brief Gets the address of the given instance of the given value in the given DynamicBuffer.
-* @param c\size\ty *address [out] A pointer to where the address will be stored.
+* @param cno_size_type *address [out] A pointer to where the address will be stored.
 * @param CNO_DynamicBuffer_type *dynamic_buffer [in] A pointer to the DynamicBuffer.
-* @param c\size\ty instance [in] The instance of the value to be addressed.
-* @param c\u8\ty value [in] The value to be addressed.
+* @param cno_size_type instance [in] The instance of the value to be addressed.
+* @param cno_u8_type value [in] The value to be addressed.
 * @return cno_u8_type
 * @retval 0 Success.
 * @retval 1 Not supported.
 * @retval 2 Invalid argument.
 * @retval >2 Failure.
 */
-cno_u8_type CNO_DynamicBuffer_AddressByte( c\size\ty *address, CNO_DynamicBuffer_type *dynamic_buffer, c\size\ty instance, c\u8\ty value );
+cno_u8_type CNO_DynamicBuffer_AddressByte( cno_size_type *address, CNO_DynamicBuffer_type *dynamic_buffer, cno_size_type instance, cno_u8_type value );
 /**
 * @fn CNO_DynamicBuffer_AddBytes
 * @brief Adds a gven number of bytes with the given valu to the address given in the given DynamicBuffer.
 * @param CNO_DynamicBuffer_type *dynamic_buffer [out] A pointer to the DynamicBuffer to be modified.
-* @param c\size\ty address [in] The addres at which the bytes should be inserted.
-* @param c\size\ty bytes [in] The number of bytes to insert.
-* @param c\u8\ty value [in] The value of each newly-inserted byte.
+* @param cno_size_type address [in] The addres at which the bytes should be inserted.
+* @param cno_size_type bytes [in] The number of bytes to insert.
+* @param cno_u8_type value [in] The value of each newly-inserted byte.
 * @return cno_u8_type
 * @retval 0 Success.
 * @retval 1 Not supported.
 * @retval 2 Invalid argument.
 * @retval >2 Failure.
 */
-cno_u8_type CNO_DynamicBuffer_AddBytes( CNO_DynamicBuffer_type *dynamic_buffer, c\size\ty address, c\size\ty bytes, c\u8\ty value );
-DynamicBuffer_RemoveBytes
-DynamicBuffer_InsertBuffer
+cno_u8_type CNO_DynamicBuffer_AddBytes( CNO_DynamicBuffer_type *dynamic_buffer, cno_size_type address, cno_size_type bytes, cno_u8_type value );
+/**
+* @fn CNO_DynamicBuffer_RemoveBytes
+* @brief Removes a range of bytes from a DynamicBuffer.
+* @param CNO_DynamicBuffer_type *dynamic_buffer [out] A pointer to the DynamicBuffer to modify.
+* @param cno_size_type address [in] The start of the removal range.
+* @param cno_size_type range [in] The length of the removal range.
+* @return cno_u8_type
+* @retval 0 Success.
+* @retval 1 Not supported.
+* @retval 2 Invalid argument.
+* @retval >2 Failure.
+*/
+cno_u8_type CNO_DynamicBuffer_RemoveBytes( CNO_DynamicBuffer_type *dynamic_buffer, cno_size_type address, cno_size_type range );
+/*DynamicBuffer_InsertBuffer
 DynamicBuffer_ExtractBuffer
 DynamicBuffer_GetBuffer
 DynamicBuffer_SetBuffer
@@ -139,7 +151,19 @@ DynamicBuffer_CountBuffer
 DynamicBuffer_AddressBuffer
 DynamicBuffer_Copy
 DynamicBuffer_FromFileStream
-DynamicBuffer_FromJSONValue
+DynamicBuffer_FromJSONValue*/
+/**
+* @fn CNO_DynamicBuffer_Serialize
+* @brief Serialize a dynamic buffer to a string.
+* @param c\string\ty string [out] The output string.
+* @param C\DynamicBuffer\ty *dynamic_buffer [in] A pointer to the DynamicBuffer to serialize.
+* @return cno_u8_type
+* @retval 0 Success.
+* @retval 1 Not supported.
+* @retval 2 Invalid argument.
+* @retval >2 Failure.
+*/
+cno_u8_type CNO_DynamicBuffer_Serialize( c\string\ty string, C\DynamicBuffer\ty *dynamic_buffer );
 /**
 * @fn CNO_DynamicBuffer_Destroy
 * @brief Destroy a previously created DynamicBuffer.

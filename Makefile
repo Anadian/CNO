@@ -409,13 +409,22 @@ ifeq ($(VERBOSE),1)
 $(info TEST2_FILES:$(TEST2_FILES))
 endif #($(VERBOSE),1)
 
-#mkvar(MEMORY_TEST_FILES,source/cno_string.h source/cno_filestream.c source/cno_time.c source/cno_memory.c source/memory_test.c)
+#mkvar(MEMORY_TEST_FILES,source/cno_string.c source/cno_filestream.c source/cno_time.c source/cno_memory.c source/memory_test.c)
 ifeq ($(origin MEMORY_TEST_FILES),undefined)
-MEMORY_TEST_FILES=source/cno_string.h source/cno_filestream.c source/cno_time.c source/cno_memory.c source/memory_test.c
+MEMORY_TEST_FILES=source/cno_string.c source/cno_filestream.c source/cno_time.c source/cno_memory.c source/memory_test.c
 endif #($(origin MEMORY_TEST_FILES),undefined)
 ifeq ($(VERBOSE),1)
 $(info MEMORY_TEST_FILES:$(MEMORY_TEST_FILES))
 endif #($(VERBOSE),1)
+
+#mkvar(DYNAMICBUFFER_TEST_FILES,source/buffer.c source/cno_filestream.c source/cno_memory.c source/dynamicbuffer_test.c)
+ifeq ($(origin DYNAMICBUFFER_TEST_FILES),undefined)
+DYNAMICBUFFER_TEST_FILES=source/buffer.c source/cno_filestream.c source/cno_memory.c source/cno_string.c
+endif #($(origin DYNAMICBUFFER_TEST_FILES),undefined)
+ifeq ($(VERBOSE),1)
+$(info DYNAMICBUFFER_TEST_FILES:$(DYNAMICBUFFER_TEST_FILES))
+endif #($(VERBOSE),1)
+
 
 
 #Recipes
@@ -463,3 +472,6 @@ memory-test:
 	$(COMPILER) $(FLAGS) $(MEMORY_TEST_FILES) source/memory_test.c -o a.out
 	./a.out
 
+dynamicbuffer-test:
+	$(COMPILER) $(FLAGS) $(DYNAMICBUFFER_TEST_FILES) source/dynamicbuffer_test.c -o a.out
+	./a.out
