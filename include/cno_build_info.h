@@ -261,7 +261,7 @@ yoffset
 width
 height
 framerate
-vsync
+framebuffers 0-3 (unbuffered, buffered, vsync, triple-buffered
 [borderless]
 [[resizable]]
 disable screensaver
@@ -323,6 +323,7 @@ inlcude full closed captioning
 visualise sound direction
 
 Input:
+mouse lock
 source toggles
 key mode (scancode/keycode)
 disable keyboard/mouse while controller connected
