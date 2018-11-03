@@ -499,6 +499,7 @@ Quality:
 	(LOD bias) Draw-Distance quality-drop-off scale none/linear/exponential
 	Texture scaling none/linear/bilinear/...
 	Sprite flashes for spawn/damage/stat-effect off/monochromatic/transparency/coloured
+	Dynamic Object indicators: particle emitters, sparkle, flash, reticle, et cetera.
 Content
 HUD
 
@@ -691,7 +692,7 @@ poison
 rect: x:u32,y:u32,w:u16,h:u16
 point: x:u32,y:u32
 distance: x:s32,y:s32
-cell: #:u16,x:f32/16,y:f32/16,
+tile: #:u16,x:f32/16,y:f32/16,
 pixel: #:u16,x:u16,y:u16,R:u8,G:u8,B:u8
 metre=16px*16px
 set based on cells and points
@@ -742,7 +743,7 @@ sprite:
 
 Relative-to:
 World
-Room
+Region
 Screen
 Display
 
