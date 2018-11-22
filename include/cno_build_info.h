@@ -519,10 +519,18 @@ elements:
 water //slow / douse
 fire //burn / melt
 ice //freeze / strengthen
-wind //throw / throw/ware
+wind //throw / throw/ware/crack
 earth //high damage / ground
 electricity //crit / conduct
 water
+or:
+fire (burns)
+bio (controls)
+wind/gas (wares)
+rock (grounds)
+electricity (is conducted)
+water (douses)
+fire
 
 augments:
 holy //strong against mystical / weak against realistic
