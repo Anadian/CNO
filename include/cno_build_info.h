@@ -948,6 +948,50 @@ Normal (1): Recommended for modern players. Criticals and item drops are in effe
 Hard (2): Recommended for action-RPG veterans accustom to old-school difficulty or people who have played the game before. Enemies are more plentiful and more aggressive. Bosses have more attacks. Weak regen is available late in the game. Only items are still in effect. Resource management is required.
 Very Hard (4): Recommended for masters of the game. Like Hard mode except attack and defence are both halved, items cost more and there is no regen at all. Neither miracles, criticals, nor item drops are in effect. Optimal resource management is required. Not recommend for first playthroughs.
 Impossible: A gimmick difficulty, this mode is like Very Hard except you die in one hit. Optimal resource management probably still won't be enough.
+Custom:
+Naviagtion
+Combat
+Stealth
+Puzzles
+Quick-Time Events
+Tutorials
+
+Navigation
+Easy: Arrows appear to guide you to your destination; all collectibles automatically appear on the map; no "area-of-interest, only exact locations.
+Normal: Destination are exact locations; collectibles are hidden until "discovered"; area-of-interest objective are kept comparatively small.
+Hard: Objectives and collectibles  are all area-o-interest; all areas-of-interest are made larger.
+Very Hard: No collectibles or objectives are shown on the map.
+
+Combat
+Refer to above; effects the multiplie on combat-related bonuses.
+
+Stealth
+Easy: Enemies are less observant and have simpler, more-predictable patterns.
+Normal: is normal.
+Hard: Enemies can notice more things; and have more complex adapting patterns; much better ar reporting things to a larger group; slightly more observant.
+Very Hard: The AI is extremely perceptive; notices everything; and never let themselves go "radio dark."
+Effects multiplier for stealth related bonuses.
+
+Puzzles:
+Easy: All puzzles can be skipped instantly.
+Normal: Required puzzles can be skipped after a certain amount of time.
+Hard: No puzzles can be skipped; puzzle are harder with randomised starting sets.
+Very Hard: Puzzles cannot be skipped; all puzzle are significantly harder with procedural, indeterministic solutions.
+Effects multiplier for time-related bonuses.
+
+Quick-Time Events:
+Easy: QTEs are easier and will be skipped, voiding any bonus, if failed.
+Normal: Most quick-time events and still be properly failed.
+Hard: QTEs requir slightly faster reflexes for a larger-completion bonus.
+Very Hard: QTEs are significantly faster and more complex in nature; all QTEs must be passed to proceed.
+Effects multiplier for QTE-success bonuses.
+
+Tutorials:
+Easy: Comprhensive tutorials
+Normal: Reccomended tutorials.
+Hard: Only essential tutorials.
+Very Hard: No tutorials.
+
 Difficulty is always dynamic on the first playthrough of the main mode.
 
 Gimmicks (for arcade mode):
