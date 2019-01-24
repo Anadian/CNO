@@ -109,6 +109,16 @@ Caution risky, safe	//stealth v aggression
 
 NPC states: Neutral, Concerned, Aggressive, Friendly.
 //Scared (not in kirby)
+Puncuation:
+. neutral
+? suspicious
+! alarmed
+% scared
+# NPC, no new dialogue
+* NPC with new dialogue
+@ neutral but no dialogue.
+$ merchant
++ medic/service provider
 
 Map colours:
 player green
@@ -134,6 +144,7 @@ Mission: Independent, replayable, scored, resolve to either success or failure
 Quest: Ambient, over-arching, stackable
 Objectives symbols:
 Notes screen [flowchart]
+Lines represent actions; points represent world-states.
 Diamond [horizontal line]: Required objective.
 Square [Diagonal line]: Alternative objective; mutually exclusive branching paths.
 Circle [vertical line]: Optional objective.
