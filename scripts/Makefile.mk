@@ -94,6 +94,14 @@ ifeq ($(VERBOSE),1)
 $(info PHASE_BUILD:$(PHASE_BUILD))
 endif #($(VERBOSE),1)
 
+#mkvar(PHASE_PREPROCESS,1)
+ifeq ($(origin PHASE_PREPROCESS),undefined)
+PHASE_PREPROCESS=1
+endif #($(origin PHASE_PREPROCESS),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_PREPROCESS:$(PHASE_PREPROCESS))
+endif #($(VERBOSE),1)
+
 #mkvar(PHASE_COMPILE,1)
 ifeq ($(origin PHASE_COMPILE),undefined)
 PHASE_COMPILE=1
@@ -102,12 +110,28 @@ ifeq ($(VERBOSE),1)
 $(info PHASE_COMPILE:$(PHASE_COMPILE))
 endif #($(VERBOSE),1)
 
+#mkvar(PHASE_ASSEMBLE,1)
+ifeq ($(origin PHASE_ASSEMBLE),undefined)
+PHASE_ASSEMBLE=1
+endif #($(origin PHASE_ASSEMBLE),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_ASSEMBLE:$(PHASE_ASSEMBLE))
+endif #($(VERBOSE),1)
+
 #mkvar(PHASE_LINK,1)
 ifeq ($(origin PHASE_LINK),undefined)
 PHASE_LINK=1
 endif #($(origin PHASE_LINK),undefined)
 ifeq ($(VERBOSE),1)
 $(info PHASE_LINK:$(PHASE_LINK))
+endif #($(VERBOSE),1)
+
+#mkvar(PHASE_INTERPRET,1)
+ifeq ($(origin PHASE_INTERPRET),undefined)
+PHASE_INTERPRET=1
+endif #($(origin PHASE_INTERPRET),undefined)
+ifeq ($(VERBOSE),1)
+$(info PHASE_INTERPRET:$(PHASE_INTERPRET))
 endif #($(VERBOSE),1)
 
 ##Test
