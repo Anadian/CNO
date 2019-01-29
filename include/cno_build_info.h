@@ -1090,6 +1090,16 @@ Broomhatter (Dust Force)
 Marx (They Bleed Pixels)
 Nnja (Return of the Ninja)
 Plasma (Penta Pal)
+
+Skills:
+Desperation: double attack at <10% HP.
+Mortal Enbolding: double defence at less than 10% max HP.
+Cunning Survival: double intellgence at less than 10% max HP.
+Adrenaline: double agility at <10% HP.
+Cool Under Pressure: double dexerity at <10% HP.
+Last Gasp: Fatal hits will reduce you to 1 HP.
+Second Wind: Scoring a kill when below 5% max HP will restore health to 15% max HP.	
+
 */
 
 //DreamPuff-thing-major-minor-patch binary-x86_64-macOS-clang-branch-commit
