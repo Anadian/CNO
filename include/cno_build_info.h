@@ -178,7 +178,7 @@ Achievements
 Options
 Extras
 Multiplayer
-//Screenshot
+//Screenshot (Hold for capture mode.)
 Restart mission
 Abort Mission
 Quit to desktop
@@ -409,6 +409,15 @@ R2: Fast-Foward
 L2: Rewind
 L1: Reset
 
+Capture mode controls:
+L2: Zoom Out			R2: Zoom In
+L1: Effect-less view	R1: Capture
+		Move Up													Effects/Filters menu
+Roll Left	Roll Right	Technical Submenu	Return to Game	Hide UI		Comfrim
+		Move Down												Cancel/return to menu
+					Forward									camera
+		Left	Reset Position	Right						R3: Reset angle
+					Backwards
 Menu Controls:
 LT: Scroll Modifier		RT: Sort/Filter/View
 LB: Pane Left			RB: Pane Right
@@ -440,6 +449,9 @@ SystemMenu: Muted: Blacked out at least 90%.
 Game must include a launcher capable of downloading updates, and modifying settings with or without running the game.
 
 Style guide:
+	package-name
+	DirectoryName (one-word names can be lower case)
+	file_name.ext
 	GLOBAL_STATICS
 	GlobalFunctionsAndVariables
 	propertiesAndMethods
