@@ -111,14 +111,23 @@ NPC states: Neutral, Concerned, Aggressive, Friendly.
 //Scared (not in kirby)
 Puncuation:
 . neutral
+.. distracted/drowsy/dazed
+... unconsious 
+' annoyed
+'' agitated/agressive
+''' enraged/frenzied
 ? suspicious
 ! alarmed
 % scared
-# NPC, no new dialogue
+@ NPC, no new dialogue
 * NPC with new dialogue
-@ neutral but no dialogue.
+# NPC, not spoken too
+& Ally
 $ merchant
 + medic/service provider
+
+Actor and dynamic object name and info format:
+<IndexCode><Name><StateSymbol>
 
 Map colours:
 player green
