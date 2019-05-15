@@ -1121,6 +1121,20 @@ Cool Under Pressure: double dexerity at <10% HP.
 Last Gasp: Fatal hits will reduce you to 1 HP.
 Second Wind: Scoring a kill when below 5% max HP will restore health to 15% max HP.	
 
+Quest:
+Playing with power: rebuilding rob.
+Manifest Destiny: mediating integration.
+No Truer Gentleman: Unweeded garden.
+You're Answer Due: Robot procreation.
+Proven Innocent: controversial trial.
+New spec: newspeak for robots.
+One Half of the Poor: Marxist troubles.
+Halos: halo effect.
+Fifth Business.
+Found Wanting.
+A Pack of Lies: agreed upon.
+Bargaining: war.
+
 */
 
 //DreamPuff-thing-major-minor-patch binary-x86_64-macOS-clang-branch-commit
