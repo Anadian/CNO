@@ -274,7 +274,7 @@ Gameplay
 Display:
 driver
 display
-display mode <WIDTH>x<HEIGHT>x<BITS_PER_PIXEL>@<REFRESH_RATE>
+display mode <WIDTH>x<HEIGHT>x<BITS_PER_PIXEL>@<REFRESH_RATE> p: progressive i: interlaced c: checkerboard
 exclusive fullscreen
 xoffset
 yoffset
