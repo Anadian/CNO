@@ -709,11 +709,13 @@ stoical/emotional
 rational/altruistic
 secular/spiritual
 competitive/cooperative
+direct/discrete
 
 Next Level XP Requirement = ceiling(8*(1.225^CurrentLevel))
-5 stats each with 10 skill levels.
+5 stats, each with 10 skill levels.
 Get 64 skill points per level.
-Cost of obtaining a given skill level 2^SkillLevel
+Cost of obtaining a given skill level 2^(SkillLevel-1)
+This level 20*64=1280 skiil points for dedicated special skills.
 
 Player can customize, unequip, and equip everything including jump.
 (Only at start of stage or at specific locations in an openworld setting.)
@@ -1113,6 +1115,8 @@ Nnja (Return of the Ninja)
 Plasma (Penta Pal)
 
 Skills:
+Skills can have 1-5 ranks; each rank has a cost matching a given level, for example:
+Low HP Skill set: rank 1, level 2 cost (4 skill points), Last Gasp, Would-be fatal hits reduce your HP to 1; rank 2, level 5 cost (32 skill points), Desperation, increase attack and agility when <20% Max HP; rank 3, level 8 cost (256 skill points), Saving Throw, Score a kill with
 Desperation: double attack at <10% HP.
 Mortal Enbolding: double defence at less than 10% max HP.
 Cunning Survival: double intellgence at less than 10% max HP.
